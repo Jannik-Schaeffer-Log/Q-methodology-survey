@@ -1,0 +1,313 @@
+,policies,score,LPI-categorie
+0,Logistics and facilitation observatories: private sector surveys,-4,Customs
+1,"Port performance indicators, including dwell-time",-4,Customs
+2,Corridor performance indicators,-4,Customs
+3,Improve cross-border transport agreements,-4,Customs
+0,Allow foreign participation in logistics services,-3,Customs
+1,Introduce professional standards and certification for logistics service providers,-3,Customs
+2,Introduce standard performance contracts for transport and logistics services,-3,Customs
+3,"Encourage development of large, long-haul trucking fleets",-3,Customs
+4,Create incentives to upgrade transport fleet,-3,Customs
+0,Encourage integration of logistics services for trade and distribution,-2,Customs
+1,Allow increase scale of logistics service providers (Mergers & Acquisitions),-2,Customs
+2,Allow introduction of new technologies for tracking and security,-2,Customs
+3,Introduce modern supply chain management techniques,-2,Customs
+4,Support for a national logistics council and other mechanisms for selfregulation,-2,Customs
+5,"Reduce economic regulation of transport services (e.g., regulatory guillotine)",-2,Customs
+0,Improve border facilities,-1,Customs
+1,Reform and automate customs procedures,-1,Customs
+2,Allow foreign trucks to transport third-country cargo in transit,-1,Customs
+3,"Introduce risk management programs to expedite clearance:  Reduced inspections, Authorized economic operators ",-1,Customs
+4,Integrate activities of border management agencies,-1,Customs
+5,Introduce a single point of entry for information used in clearing cargo,-1,Customs
+6,Promote cross-border cooperation in monitoring and clearing cargo,-1,Customs
+0,Simplify trade and infrastructure tariffs,0,Customs
+1,Reduce controlled commodities and certification requirements,0,Customs
+2,Revise domestic tax policy to facilitate movement of goods within a country,0,Customs
+3,Increase inland clearance of cargo,0,Customs
+4,"Automate and simplify procedures for sanitary and phytosanitary, and for standards certification",0,Customs
+5,Accept scanned copies for supporting document and e-signatures,0,Customs
+6,"Improve trade security (e.g., scanners, secure supply chains)",0,Customs
+7,Develop public information platforms for sharing trade and logistics data,0,Customs
+0,"Develop capacity to analyze indicators, monitor results of policies and investments",1,Customs
+1,Plan and manage multimodal freight corridors,1,Customs
+2,Improve collection of key statistical information and performance indicators,1,Customs
+3,Strengthen capacity of authorities regulating trade and logistics,1,Customs
+4,Introduce e-government services and e-signatures to facilitate government approvals,1,Customs
+5,"Reform banking practices related to trade, liberalize foreign exchange transactions",1,Customs
+6,"Develop urban and line-haul transport interface (e.g., urban truck terminals)",1,Customs
+0,Upgrade existing transport link,2,Customs
+1,Establish dry ports and inland clearance facilities,2,Customs
+2,Plan and manage multi-country freight corridor,2,Customs
+3,"Develop logistics hubs (e.g., free zones, distribution centers)",2,Customs
+4,Construct new transport link,2,Customs
+5,Introduce commercial management in port and airport operations,2,Customs
+0,Improve the effectiveness of customs operations with single window initiatives,3,Customs
+1,Coordinate customs operations with trusted importers and exporters,3,Customs
+2,Improve telecommunications services to support logistics,3,Customs
+3,Create special customs zones,3,Customs
+4,Expand the ease to move cargo between customs entities within the same country.,3,Customs
+0,Open terminal facilities to private terminal operators.,4,Customs
+1,Develop gateways (ports and airports) as locations of national strategic interest.,4,Customs
+2,Develop or expand key transport connectors between logistical activities (e.g. terminals and logistics zones).,4,Customs
+3,Develop zones supporting logistics activities.,4,Customs
+0,Corridor performance indicators,-4,Infrastructure
+1,"Port performance indicators, including dwell-time",-4,Infrastructure
+2,Improve cross-border transport agreements,-4,Infrastructure
+3,Introduce standard performance contracts for transport and logistics services,-4,Infrastructure
+0,Allow foreign trucks to transport third-country cargo in transit,-3,Infrastructure
+1,"Reduce economic regulation of transport services (e.g., regulatory guillotine)",-3,Infrastructure
+2,Allow foreign participation in logistics services,-3,Infrastructure
+3,Encourage integration of logistics services for trade and distribution,-3,Infrastructure
+4,Allow introduction of new technologies for tracking and security,-3,Infrastructure
+0,Introduce professional standards and certification for logistics service providers,-2,Infrastructure
+1,Logistics and facilitation observatories: private sector surveys,-2,Infrastructure
+2,Allow increase scale of logistics service providers (Mergers & Acquisitions),-2,Infrastructure
+3,Improve border facilities,-2,Infrastructure
+4,"Introduce risk management programs to expedite clearance:  Reduced inspections, Authorized economic operators ",-2,Infrastructure
+5,"Improve trade security (e.g., scanners, secure supply chains)",-2,Infrastructure
+0,Introduce modern supply chain management techniques,-1,Infrastructure
+1,Reform and automate customs procedures,-1,Infrastructure
+2,Integrate activities of border management agencies,-1,Infrastructure
+3,Promote cross-border cooperation in monitoring and clearing cargo,-1,Infrastructure
+4,Accept scanned copies for supporting document and e-signatures,-1,Infrastructure
+5,"Automate and simplify procedures for sanitary and phytosanitary, and for standards certification",-1,Infrastructure
+6,Increase inland clearance of cargo,-1,Infrastructure
+0,Create incentives to upgrade transport fleet,0,Infrastructure
+1,Introduce a single point of entry for information used in clearing cargo,0,Infrastructure
+2,Reduce controlled commodities and certification requirements,0,Infrastructure
+3,Revise domestic tax policy to facilitate movement of goods within a country,0,Infrastructure
+4,Construct new transport link,0,Infrastructure
+5,Introduce commercial management in port and airport operations,0,Infrastructure
+6,Increase private sector participation to provide and maintain public infrastructure,0,Infrastructure
+7,Plan and manage multi-country freight corridor,0,Infrastructure
+0,"Reform banking practices related to trade, liberalize foreign exchange transactions",1,Infrastructure
+1,Introduce e-government services and e-signatures to facilitate government approvals,1,Infrastructure
+2,Strengthen capacity of authorities regulating trade and logistics,1,Infrastructure
+3,Develop public information platforms for sharing trade and logistics data,1,Infrastructure
+4,Improve collection of key statistical information and performance indicators,1,Infrastructure
+5,Simplify trade and infrastructure tariffs,1,Infrastructure
+6,"Develop capacity to analyze indicators, monitor results of policies and investments",1,Infrastructure
+0,"Develop urban and line-haul transport interface (e.g., urban truck terminals)",2,Infrastructure
+1,Upgrade existing transport link,2,Infrastructure
+2,Improve telecommunications services to support logistics,2,Infrastructure
+3,"Develop logistics hubs (e.g., free zones, distribution centers)",2,Infrastructure
+4,Establish dry ports and inland clearance facilities,2,Infrastructure
+5,Improve the effectiveness of customs operations with single window initiatives,2,Infrastructure
+0,Plan and manage multimodal freight corridors,3,Infrastructure
+1,Expand the ease to move cargo between customs entities within the same country.,3,Infrastructure
+2,Develop gateways (ports and airports) as locations of national strategic interest.,3,Infrastructure
+3,Create special customs zones,3,Infrastructure
+4,Coordinate customs operations with trusted importers and exporters,3,Infrastructure
+0,"Encourage development of large, long-haul trucking fleets",4,Infrastructure
+1,Develop or expand key transport connectors between logistical activities (e.g. terminals and logistics zones).,4,Infrastructure
+2,"Privatize public terminals, transporters or distributors.",4,Infrastructure
+3,Develop zones supporting logistics activities.,4,Infrastructure
+0,Corridor performance indicators,-4,International shipments
+1,"Port performance indicators, including dwell-time",-4,International shipments
+2,Logistics and facilitation observatories: private sector surveys,-4,International shipments
+3,Allow foreign trucks to transport third-country cargo in transit,-4,International shipments
+0,Introduce professional standards and certification for logistics service providers,-3,International shipments
+1,Allow foreign participation in logistics services,-3,International shipments
+2,Introduce standard performance contracts for transport and logistics services,-3,International shipments
+3,"Reduce economic regulation of transport services (e.g., regulatory guillotine)",-3,International shipments
+4,Improve cross-border transport agreements,-3,International shipments
+0,Encourage integration of logistics services for trade and distribution,-2,International shipments
+1,Allow introduction of new technologies for tracking and security,-2,International shipments
+2,Introduce modern supply chain management techniques,-2,International shipments
+3,Allow increase scale of logistics service providers (Mergers & Acquisitions),-2,International shipments
+4,Support for a national logistics council and other mechanisms for selfregulation,-2,International shipments
+5,Reform and automate customs procedures,-2,International shipments
+0,Improve border facilities,-1,International shipments
+1,"Introduce risk management programs to expedite clearance:  Reduced inspections, Authorized economic operators ",-1,International shipments
+2,"Improve trade security (e.g., scanners, secure supply chains)",-1,International shipments
+3,Integrate activities of border management agencies,-1,International shipments
+4,Introduce a single point of entry for information used in clearing cargo,-1,International shipments
+5,Promote cross-border cooperation in monitoring and clearing cargo,-1,International shipments
+6,Create incentives to upgrade transport fleet,-1,International shipments
+0,Simplify trade and infrastructure tariffs,0,International shipments
+1,Reduce controlled commodities and certification requirements,0,International shipments
+2,Increase inland clearance of cargo,0,International shipments
+3,"Automate and simplify procedures for sanitary and phytosanitary, and for standards certification",0,International shipments
+4,Accept scanned copies for supporting document and e-signatures,0,International shipments
+5,"Encourage development of large, long-haul trucking fleets",0,International shipments
+6,"Reform banking practices related to trade, liberalize foreign exchange transactions",0,International shipments
+7,Develop public information platforms for sharing trade and logistics data,0,International shipments
+0,Plan and manage multimodal freight corridors,1,International shipments
+1,"Develop capacity to analyze indicators, monitor results of policies and investments",1,International shipments
+2,Improve collection of key statistical information and performance indicators,1,International shipments
+3,Strengthen capacity of authorities regulating trade and logistics,1,International shipments
+4,"Develop urban and line-haul transport interface (e.g., urban truck terminals)",1,International shipments
+5,Introduce e-government services and e-signatures to facilitate government approvals,1,International shipments
+6,Revise domestic tax policy to facilitate movement of goods within a country,1,International shipments
+0,Plan and manage multi-country freight corridor,2,International shipments
+1,Establish dry ports and inland clearance facilities,2,International shipments
+2,"Develop logistics hubs (e.g., free zones, distribution centers)",2,International shipments
+3,Upgrade existing transport link,2,International shipments
+4,Construct new transport link,2,International shipments
+5,Introduce commercial management in port and airport operations,2,International shipments
+0,Coordinate customs operations with trusted importers and exporters,3,International shipments
+1,Create special customs zones,3,International shipments
+2,Improve the effectiveness of customs operations with single window initiatives,3,International shipments
+3,Expand the ease to move cargo between customs entities within the same country.,3,International shipments
+4,Open terminal facilities to private terminal operators.,3,International shipments
+0,Develop or expand key transport connectors between logistical activities (e.g. terminals and logistics zones).,4,International shipments
+1,"Privatize public terminals, transporters or distributors.",4,International shipments
+2,Develop zones supporting logistics activities.,4,International shipments
+3,Develop gateways (ports and airports) as locations of national strategic interest.,4,International shipments
+0,Logistics and facilitation observatories: private sector surveys,-4,Logistics competences
+1,Corridor performance indicators,-4,Logistics competences
+2,"Port performance indicators, including dwell-time",-4,Logistics competences
+3,"Reduce economic regulation of transport services (e.g., regulatory guillotine)",-4,Logistics competences
+0,Allow foreign participation in logistics services,-3,Logistics competences
+1,Introduce professional standards and certification for logistics service providers,-3,Logistics competences
+2,Allow foreign trucks to transport third-country cargo in transit,-3,Logistics competences
+3,Introduce standard performance contracts for transport and logistics services,-3,Logistics competences
+4,"Encourage development of large, long-haul trucking fleets",-3,Logistics competences
+0,Encourage integration of logistics services for trade and distribution,-2,Logistics competences
+1,Allow introduction of new technologies for tracking and security,-2,Logistics competences
+2,Allow increase scale of logistics service providers (Mergers & Acquisitions),-2,Logistics competences
+3,Introduce modern supply chain management techniques,-2,Logistics competences
+4,Support for a national logistics council and other mechanisms for selfregulation,-2,Logistics competences
+5,Reform and automate customs procedures,-2,Logistics competences
+0,"Introduce risk management programs to expedite clearance:  Reduced inspections, Authorized economic operators ",-1,Logistics competences
+1,"Improve trade security (e.g., scanners, secure supply chains)",-1,Logistics competences
+2,Integrate activities of border management agencies,-1,Logistics competences
+3,Improve border facilities,-1,Logistics competences
+4,Create incentives to upgrade transport fleet,-1,Logistics competences
+5,Improve cross-border transport agreements,-1,Logistics competences
+6,Promote cross-border cooperation in monitoring and clearing cargo,-1,Logistics competences
+0,"Automate and simplify procedures for sanitary and phytosanitary, and for standards certification",0,Logistics competences
+1,Simplify trade and infrastructure tariffs,0,Logistics competences
+2,Revise domestic tax policy to facilitate movement of goods within a country,0,Logistics competences
+3,Reduce controlled commodities and certification requirements,0,Logistics competences
+4,Develop public information platforms for sharing trade and logistics data,0,Logistics competences
+5,Increase inland clearance of cargo,0,Logistics competences
+6,Introduce e-government services and e-signatures to facilitate government approvals,0,Logistics competences
+7,Strengthen capacity of authorities regulating trade and logistics,0,Logistics competences
+0,Plan and manage multimodal freight corridors,1,Logistics competences
+1,"Develop urban and line-haul transport interface (e.g., urban truck terminals)",1,Logistics competences
+2,Increase private sector participation to provide and maintain public infrastructure,1,Logistics competences
+3,Introduce commercial management in port and airport operations,1,Logistics competences
+4,Improve collection of key statistical information and performance indicators,1,Logistics competences
+5,"Develop capacity to analyze indicators, monitor results of policies and investments",1,Logistics competences
+6,Construct new transport link,1,Logistics competences
+0,Plan and manage multi-country freight corridor,2,Logistics competences
+1,Establish dry ports and inland clearance facilities,2,Logistics competences
+2,"Develop logistics hubs (e.g., free zones, distribution centers)",2,Logistics competences
+3,Improve the effectiveness of customs operations with single window initiatives,2,Logistics competences
+4,Upgrade existing transport link,2,Logistics competences
+5,Improve telecommunications services to support logistics,2,Logistics competences
+0,Coordinate customs operations with trusted importers and exporters,3,Logistics competences
+1,Expand the ease to move cargo between customs entities within the same country.,3,Logistics competences
+2,Develop gateways (ports and airports) as locations of national strategic interest.,3,Logistics competences
+3,Open terminal facilities to private terminal operators.,3,Logistics competences
+4,"Reform banking practices related to trade, liberalize foreign exchange transactions",3,Logistics competences
+0,"Privatize public terminals, transporters or distributors.",4,Logistics competences
+1,Create special customs zones,4,Logistics competences
+2,Develop logistics zones adjacent to port terminal facilities.,4,Logistics competences
+3,Develop facilities for users to pick up and drop containers outside terminals.,4,Logistics competences
+0,Logistics and facilitation observatories: private sector surveys,-4,Tracking_Tracing
+1,Improve cross-border transport agreements,-4,Tracking_Tracing
+2,"Port performance indicators, including dwell-time",-4,Tracking_Tracing
+3,Corridor performance indicators,-4,Tracking_Tracing
+0,Allow foreign trucks to transport third-country cargo in transit,-3,Tracking_Tracing
+1,"Reduce economic regulation of transport services (e.g., regulatory guillotine)",-3,Tracking_Tracing
+2,Introduce professional standards and certification for logistics service providers,-3,Tracking_Tracing
+3,Introduce standard performance contracts for transport and logistics services,-3,Tracking_Tracing
+4,"Encourage development of large, long-haul trucking fleets",-3,Tracking_Tracing
+0,Encourage integration of logistics services for trade and distribution,-2,Tracking_Tracing
+1,Allow introduction of new technologies for tracking and security,-2,Tracking_Tracing
+2,Allow increase scale of logistics service providers (Mergers & Acquisitions),-2,Tracking_Tracing
+3,Introduce modern supply chain management techniques,-2,Tracking_Tracing
+4,Support for a national logistics council and other mechanisms for selfregulation,-2,Tracking_Tracing
+5,Create incentives to upgrade transport fleet,-2,Tracking_Tracing
+0,"Introduce risk management programs to expedite clearance:  Reduced inspections, Authorized economic operators ",-1,Tracking_Tracing
+1,Improve border facilities,-1,Tracking_Tracing
+2,"Improve trade security (e.g., scanners, secure supply chains)",-1,Tracking_Tracing
+3,Reform and automate customs procedures,-1,Tracking_Tracing
+4,Integrate activities of border management agencies,-1,Tracking_Tracing
+5,Introduce a single point of entry for information used in clearing cargo,-1,Tracking_Tracing
+6,Promote cross-border cooperation in monitoring and clearing cargo,-1,Tracking_Tracing
+0,Simplify trade and infrastructure tariffs,0,Tracking_Tracing
+1,Reduce controlled commodities and certification requirements,0,Tracking_Tracing
+2,Increase inland clearance of cargo,0,Tracking_Tracing
+3,"Automate and simplify procedures for sanitary and phytosanitary, and for standards certification",0,Tracking_Tracing
+4,Revise domestic tax policy to facilitate movement of goods within a country,0,Tracking_Tracing
+5,Accept scanned copies for supporting document and e-signatures,0,Tracking_Tracing
+6,Allow foreign participation in logistics services,0,Tracking_Tracing
+7,Strengthen capacity of authorities regulating trade and logistics,0,Tracking_Tracing
+0,"Develop capacity to analyze indicators, monitor results of policies and investments",1,Tracking_Tracing
+1,Improve collection of key statistical information and performance indicators,1,Tracking_Tracing
+2,Plan and manage multimodal freight corridors,1,Tracking_Tracing
+3,Increase private sector participation to provide and maintain public infrastructure,1,Tracking_Tracing
+4,Introduce commercial management in port and airport operations,1,Tracking_Tracing
+5,"Develop urban and line-haul transport interface (e.g., urban truck terminals)",1,Tracking_Tracing
+6,Construct new transport link,1,Tracking_Tracing
+0,Introduce e-government services and e-signatures to facilitate government approvals,2,Tracking_Tracing
+1,Develop public information platforms for sharing trade and logistics data,2,Tracking_Tracing
+2,"Develop logistics hubs (e.g., free zones, distribution centers)",2,Tracking_Tracing
+3,Improve telecommunications services to support logistics,2,Tracking_Tracing
+4,Establish dry ports and inland clearance facilities,2,Tracking_Tracing
+5,Improve the effectiveness of customs operations with single window initiatives,2,Tracking_Tracing
+0,Coordinate customs operations with trusted importers and exporters,3,Tracking_Tracing
+1,Plan and manage multi-country freight corridor,3,Tracking_Tracing
+2,Upgrade existing transport link,3,Tracking_Tracing
+3,Create special customs zones,3,Tracking_Tracing
+4,Expand the ease to move cargo between customs entities within the same country.,3,Tracking_Tracing
+0,"Privatize public terminals, transporters or distributors.",4,Tracking_Tracing
+1,Develop or expand key transport connectors between logistical activities (e.g. terminals and logistics zones).,4,Tracking_Tracing
+2,Open terminal facilities to private terminal operators.,4,Tracking_Tracing
+3,Develop zones supporting logistics activities.,4,Tracking_Tracing
+0,Logistics and facilitation observatories: private sector surveys,-4,Timeliness
+1,Corridor performance indicators,-4,Timeliness
+2,"Port performance indicators, including dwell-time",-4,Timeliness
+3,Improve cross-border transport agreements,-4,Timeliness
+0,Introduce professional standards and certification for logistics service providers,-3,Timeliness
+1,Allow foreign participation in logistics services,-3,Timeliness
+2,"Reduce economic regulation of transport services (e.g., regulatory guillotine)",-3,Timeliness
+3,Allow foreign trucks to transport third-country cargo in transit,-3,Timeliness
+4,Encourage integration of logistics services for trade and distribution,-3,Timeliness
+0,Revise domestic tax policy to facilitate movement of goods within a country,-2,Timeliness
+1,Reduce controlled commodities and certification requirements,-2,Timeliness
+2,Improve collection of key statistical information and performance indicators,-2,Timeliness
+3,Strengthen capacity of authorities regulating trade and logistics,-2,Timeliness
+4,Introduce e-government services and e-signatures to facilitate government approvals,-2,Timeliness
+5,"Develop capacity to analyze indicators, monitor results of policies and investments",-2,Timeliness
+0,Allow increase scale of logistics service providers (Mergers & Acquisitions),-1,Timeliness
+1,Allow introduction of new technologies for tracking and security,-1,Timeliness
+2,Create incentives to upgrade transport fleet,-1,Timeliness
+3,Support for a national logistics council and other mechanisms for selfregulation,-1,Timeliness
+4,Introduce modern supply chain management techniques,-1,Timeliness
+5,Reform and automate customs procedures,-1,Timeliness
+6,"Introduce risk management programs to expedite clearance:  Reduced inspections, Authorized economic operators ",-1,Timeliness
+0,Integrate activities of border management agencies,0,Timeliness
+1,Introduce a single point of entry for information used in clearing cargo,0,Timeliness
+2,"Improve trade security (e.g., scanners, secure supply chains)",0,Timeliness
+3,Improve border facilities,0,Timeliness
+4,Promote cross-border cooperation in monitoring and clearing cargo,0,Timeliness
+5,"Encourage development of large, long-haul trucking fleets",0,Timeliness
+6,Increase inland clearance of cargo,0,Timeliness
+7,Simplify trade and infrastructure tariffs,0,Timeliness
+0,"Reform banking practices related to trade, liberalize foreign exchange transactions",1,Timeliness
+1,Develop public information platforms for sharing trade and logistics data,1,Timeliness
+2,"Automate and simplify procedures for sanitary and phytosanitary, and for standards certification",1,Timeliness
+3,"Develop urban and line-haul transport interface (e.g., urban truck terminals)",1,Timeliness
+4,Plan and manage multimodal freight corridors,1,Timeliness
+5,Construct new transport link,1,Timeliness
+6,Upgrade existing transport link,1,Timeliness
+0,Introduce commercial management in port and airport operations,2,Timeliness
+1,Plan and manage multi-country freight corridor,2,Timeliness
+2,Increase private sector participation to provide and maintain public infrastructure,2,Timeliness
+3,Accept scanned copies for supporting document and e-signatures,2,Timeliness
+4,"Develop logistics hubs (e.g., free zones, distribution centers)",2,Timeliness
+5,Improve telecommunications services to support logistics,2,Timeliness
+0,Improve the effectiveness of customs operations with single window initiatives,3,Timeliness
+1,Coordinate customs operations with trusted importers and exporters,3,Timeliness
+2,Establish dry ports and inland clearance facilities,3,Timeliness
+3,Create special customs zones,3,Timeliness
+4,Open terminal facilities to private terminal operators.,3,Timeliness
+0,Develop gateways (ports and airports) as locations of national strategic interest.,4,Timeliness
+1,Expand the ease to move cargo between customs entities within the same country.,4,Timeliness
+2,Develop or expand key transport connectors between logistical activities (e.g. terminals and logistics zones).,4,Timeliness
+3,Develop zones supporting logistics activities.,4,Timeliness
