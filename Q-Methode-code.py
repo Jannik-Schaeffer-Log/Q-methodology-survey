@@ -601,14 +601,14 @@ df_results.to_csv('data/Survey_results.csv',sep=',')
 # if st.button('Send your survey results'):
 #     send_mail()
 
-from flask import Flask, request, jsonify
+
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 from email.mime.application import MIMEApplication
 
-app = Flask(__name__)
+
 
 def send_test_mail(body):
     sender_email = "jannik.schaeffer.tu-berlin-logistik@web.de"
