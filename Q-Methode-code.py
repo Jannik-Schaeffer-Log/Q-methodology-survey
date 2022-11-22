@@ -10,7 +10,8 @@ st.set_page_config(page_title="Q-Methodology", page_icon="🥑",layout="wide")
 ########################################
 # Read Data
 ########################################
-df_policies= pd.read_csv("data\Policies.csv", delimiter=';')
+data_link='https://github.com/Jannik-Schaeffer-Log/Q-methodology-survey/blob/main/data/Policies.csv'
+df_policies= pd.read_csv(data_link, delimiter=';')
 
 all_policies=df_policies['Policy Component '].unique()
 
