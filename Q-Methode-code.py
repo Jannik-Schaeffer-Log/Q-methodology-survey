@@ -12,7 +12,7 @@ st.set_page_config(page_title="Q-Methodology", page_icon="🥑",layout="wide")
 ########################################
 df_policies_colnames=['Order','Policy Short','Policy Component','Policy Area','Ability to track and trace consignments, score (1=low to 5=high)','Competence and quality of logistics services, score (1=low to 5=high)','Ease of arranging competitively priced international shipments, score (1=low to 5=high)','Efficiency of the clearance process, score (1=low to 5=high)','Frequency with which shipments reach consignee within scheduled or expected time, score (1=low to 5=high)','Quality of trade- and transport-related infrastructure, score (1=low to 5=high)','High-Income Economies','Upper-Middle-Income Economies','Lower-Middle Income Economies','Low-Income Economies','EAST ASIA AND PACIFIC','EUROPE AND CENTRAL ASIA','LATIN AMERICA AND THE CARIBBEAN','MIDDLE EAST AND NORTH AFRICA','NORTH AMERICA','SOUTH ASIA','SUB-SAHARAN AFRICA','Cereals (excluding beer)','Dairy products','Fruit and Vegetables (including bananas)','Meat','Oilseeds and Pulses (including nuts)','Roots and Tubers','Farm','Food Services','Harvest','Households','Post-harvest','Processing','Retail','Storage','Trader','Transport','Whole supply chain','Wholesale','Benefits','Risks','Author','Source']
 
-df_policies= pd.read_csv('https://github.com/Jannik-Schaeffer-Log/Q-methodology-survey/blob/main/data/Policies_framed.csv', sep=';',lineterminator='\n', names=df_policies_colnames, error_bad_lines=False, header=0)
+df_policies= pd.read_csv('https://github.com/Jannik-Schaeffer-Log/Q-methodology-survey/blob/main/data/Policies_framed.csv', sep=';',lineterminator='\n', error_bad_lines=False, header=0)
 
 all_policies=df_policies['Policy Component'].unique()
 
