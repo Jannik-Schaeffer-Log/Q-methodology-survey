@@ -14,7 +14,7 @@ df_policies_colnames=['Order','Policy Short','Policy Component','Policy Area','A
 
 df_policies= pd.read_csv('https://github.com/Jannik-Schaeffer-Log/Q-methodology-survey/blob/main/data/Policies_framed.csv', sep=';',lineterminator='\n', names=df_policies_colnames, error_bad_lines=False)
 
-all_policies=df_policies['Policy Component '].unique()
+all_policies=df_policies['Policy Component'].unique()
 
 try:
     len(policies_LPI1)
