@@ -608,8 +608,8 @@ from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 from email.mime.application import MIMEApplication
 
-EMAIL='jannik.schaeffer.tu-berlin-logistik@web.de'
-EMAIL_PW='Logistik4TUBerlin'
+# EMAIL='jannik.schaeffer.tu-berlin-logistik@web.de'
+# EMAIL_PW='Logistik4TUBerlin'
 
 def send_test_mail(body):
     sender_email = "jannik.schaeffer.tu-berlin-logistik@web.de"
