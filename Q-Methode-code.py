@@ -608,7 +608,8 @@ from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 from email.mime.application import MIMEApplication
 
-
+EMAIL='jannik.schaeffer.tu-berlin-logistik@web.de'
+EMAIL_PW='Logistik4TUBerlin'
 
 def send_test_mail(body):
     sender_email = "jannik.schaeffer.tu-berlin-logistik@web.de"
@@ -630,7 +631,7 @@ def send_test_mail(body):
         with smtplib.SMTP('smtp.web.de', 587) as smtpObj:
             smtpObj.ehlo()
             smtpObj.starttls()
-            smtpObj.login("jannik.schaeffer.tu-berlin-logistik@web.de", "Logistik4TUBerlin")
+            smtpObj.login(EMAIL, EMAIL_PW)
             smtpObj.sendmail(sender_email, receiver_email, msg.as_string())
     except Exception as e:
         print(e)
