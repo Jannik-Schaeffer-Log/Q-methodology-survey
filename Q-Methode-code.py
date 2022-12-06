@@ -19,7 +19,7 @@ with st.sidebar:
 ########################################
 df_policies_colnames=['No.','Policy','Benefits','Risks']
 
-df_policies= pd.read_csv("data/All_Food_Loss_Policies.csv")#, delimiter=';')#, names=df_policies_colnames)
+df_policies= pd.read_csv("data/All_Food_Loss_Policies.csv", delimiter=';')#, names=df_policies_colnames)
 
 all_policies=df_policies['Policy'].unique()
 
