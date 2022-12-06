@@ -28,6 +28,13 @@ else:
 
 all_policies=df_policies[policy_column].unique()
 
+#shuffle policies
+if 'shuffle_seed' not in st.session_state:
+    st.session_state['shuffle_seed'] = np.random.randint(0, 100000) 
+
+np.random.seed(st.session_state['shuffle_seed']) 
+np.random.shuffle(all_policies)
+
 
 try:
     len(policies_LPI1)
@@ -94,7 +101,7 @@ if st.session_state['language'] == 'English':
     st.markdown('''Participation in this survey is voluntary and will take you up to **45 min**.''')
     st.markdown('''**Your Task:** 50 policies should be ranked in ascending order of their potential to improve logistics performance in any category.''')
     with st.expander('**Click to see all available policies**') :
-        st.dataframe(df_policies[policy_column])
+        st.dataframe(all_policies)
     st.markdown('''Each of the following **6 categories** is one of the dimensions on which the World Bank's [Logistics Performance Index](%s) is based.'''%LPI_Link)
     st.markdown('''**Note:** Don't forget to **SAVE** and **SEND** your entries.''')
 else:
@@ -102,7 +109,7 @@ else:
     st.markdown('''Eine Teilnahme an dieser Umfrage ist freiwillig und kann in Summe bis zu **45 min** dauern.''')
     st.markdown('''**Ihr Aufgabe:** 50 Policies sollen ihrem Potenzial zur Verbesserung der Logistik-Performance in etwaigen Kategorie aufsteigend geordnet werden.''')
     with st.expander('**Klicken um alle Policy-Maßnahmen einzusehen**') :
-        st.dataframe(df_policies[policy_column])
+        st.dataframe(all_policies)
     st.markdown('''Jede der folgenden **6 Kategorien** ist eine der Dimensionen, auf denen der [Logistics Performance Index](%s) der Weltbank basiert.'''%LPI_Link)
     st.markdown('''**Info:** Vergessen Sie nicht ihre Eingaben zu **SPEICHERN** und anschließend zu **SENDEN**.''')
 
