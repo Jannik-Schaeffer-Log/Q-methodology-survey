@@ -17,11 +17,17 @@ with st.sidebar:
 ########################################
 # Read Data
 ########################################
-df_policies_colnames=['No.','Policy','Benefits','Risks']
+df_policies_colnames=['No.','Policy','Policies Deutsch','Benefits','Risks']
 
-df_policies= pd.read_csv("data/All_Food_Loss_Policies.csv", delimiter=';')#, names=df_policies_colnames)
+df_policies= pd.read_csv("data/All_Food_Loss_Policies.csv", delimiter=';')
 
-all_policies=df_policies['Policy'].unique()
+if st.session_state['language'] == 'English':
+    policy_column='Policy'
+else:
+    policy_column='Policies Deutsch'
+
+all_policies=df_policies[policy_column].unique()
+
 
 try:
     len(policies_LPI1)
@@ -88,7 +94,7 @@ if st.session_state['language'] == 'English':
     st.markdown('''Participation in this survey is voluntary and will take you up to **45 min**.''')
     st.markdown('''**Your Task:** 50 policies should be ranked in ascending order of their potential to improve logistics performance in any category.''')
     with st.expander('**Click to see all available policies**') :
-        st.dataframe(df_policies.fillna('').iloc[:,1:2])
+        st.dataframe(df_policies[policy_column])
     st.markdown('''Each of the following **6 categories** is one of the dimensions on which the World Bank's [Logistics Performance Index](%s) is based.'''%LPI_Link)
     st.markdown('''**Note:** Don't forget to **SAVE** and **SEND** your entries.''')
 else:
@@ -96,7 +102,7 @@ else:
     st.markdown('''Eine Teilnahme an dieser Umfrage ist freiwillig und kann in Summe bis zu **45 min** dauern.''')
     st.markdown('''**Ihr Aufgabe:** 50 Policies sollen ihrem Potenzial zur Verbesserung der Logistik-Performance in etwaigen Kategorie aufsteigend geordnet werden.''')
     with st.expander('**Klicken um alle Policy-Maßnahmen einzusehen**') :
-        st.dataframe(df_policies.fillna('').iloc[:,1:2])
+        st.dataframe(df_policies[policy_column])
     st.markdown('''Jede der folgenden **6 Kategorien** ist eine der Dimensionen, auf denen der [Logistics Performance Index](%s) der Weltbank basiert.'''%LPI_Link)
     st.markdown('''**Info:** Vergessen Sie nicht ihre Eingaben zu **SPEICHERN** und anschließend zu **SENDEN**.''')
 
@@ -630,7 +636,7 @@ if save_results:
 
 
 
-if st.session_state['survey_completion_check'] == 'survey completed':
+if st.session_state['survey_completion_check'] == 'survey completed' or st.session_state['survey_completion_check'] == 'survey saved' :
         df_results=pd.concat([df_results,list_of_selected_policies1_LPI1])
         df_results=pd.concat([df_results,list_of_selected_policies2_LPI1])
         df_results=pd.concat([df_results,list_of_selected_policies3_LPI1])
@@ -685,6 +691,8 @@ if st.session_state['survey_completion_check'] == 'survey completed':
         df_results=pd.concat([df_results,list_of_selected_policies7_LPI6])
         df_results=pd.concat([df_results,list_of_selected_policies8_LPI6])
         df_results=pd.concat([df_results,list_of_selected_policies9_LPI6])
+        df_results=pd.merge(left=df_results, right=df_policies, left_on='policies', right_on=policy_column)
+        df_results=df_results[['score','LPI-categorie','Policy']]
         st.session_state['survey_completion_check'] = 'survey saved'
 
 df_results.to_csv('data/Survey_results.csv',sep=',')
