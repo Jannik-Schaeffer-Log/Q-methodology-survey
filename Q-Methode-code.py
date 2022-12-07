@@ -356,11 +356,11 @@ st.markdown('''---''')
 if st.session_state['language'] == 'English':
     st.subheader('2. Infrastructure')
     st.write('**Description:** The quality of trade and transport infrastructure *(”Infrastructure”)*. *[soucre](%s)*'%LPI_categories_Link)
-    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left)** and then proceed in order to the most appropriate measures **(right)**.')
+    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left/-4)** and then proceed in order to the most appropriate measures **(right/4)**.')
 else:
     st.subheader('2. Infrastruktur')
     st.write('**Beschreibung:** Die Qualität der Handels- und Verkehrsinfrastruktur *(“Infrastructure”)*. *[Quelle](%s)*'%LPI_categories_Link)
-    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts)**.')
+    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links/-4)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts/4)**.')
 
 LPI_cat='Infrastructure'
 col1, col2, col3, col4, col5, col6, col7, col8, col9, = st.columns(9)
@@ -407,11 +407,11 @@ st.markdown('''---''')
 if st.session_state['language'] == 'English':
     st.subheader('3. Ease of arranging shipments')
     st.write('**Description:** The ease of arranging competitively priced shipments *(”Ease of arranging shipments”)*. *[soucre](%s)*'%LPI_categories_Link)
-    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left)** and then proceed in order to the most appropriate measures **(right)**.')
+    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left/-4)** and then proceed in order to the most appropriate measures **(right/4)**.')
 else:
     st.subheader('3. Preisliche Wettbewerbsfähigkeit von Sendungen')
     st.write('**Beschreibung:** Die Möglichkeit, Sendungen zu wettbewerbsfähigen Preisen zu arrangieren *("Ease of arranging shipments")*. *[Quelle](%s)*'%LPI_categories_Link)
-    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts)**.')
+    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links/-4)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts/4)**.')
 
 LPI_cat='International shipments'
 col1, col2, col3, col4, col5, col6, col7, col8, col9, = st.columns(9)
@@ -458,11 +458,11 @@ st.markdown('''---''')
 if st.session_state['language'] == 'English':
     st.subheader('4. Quality of logistics services')
     st.write('**Description:** The competence and quality of logistics services—trucking, forwarding, and customs brokerage *(“Quality of logistics services”)*. *[soucre](%s)*'%LPI_categories_Link)
-    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left)** and then proceed in order to the most appropriate measures **(right)**.')
+    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left/-4)** and then proceed in order to the most appropriate measures **(right/4)**.')
 else:
     st.subheader('4. Qualität von Logistik Service')
     st.write('**Beschreibung:** Kompetenz und Qualität der Logistikdienstleistungen - Transport, Spedition und Zollabfertigung *("Quality of logistics services")*. *[Quelle](%s)*'%LPI_categories_Link)
-    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts)**.')
+    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links/-4)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts/4)**.')
 
 
 LPI_cat='Logistics competences'
@@ -509,11 +509,11 @@ st.markdown('''---''')
 if st.session_state['language'] == 'English':
     st.subheader('5. Tracking and tracing')
     st.write('**Description:** The ability to track and trace consignments *(“Tracking and tracing”)*. *[soucre](%s)*'%LPI_categories_Link)
-    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left)** and then proceed in order to the most appropriate measures **(right)**.')
+    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left/-4)** and then proceed in order to the most appropriate measures **(right/4)**.')
 else:
     st.subheader('5. Tracking und Tracing')
     st.write('**Beschreibung:** Die Möglichkeit, Sendungen zu verfolgen *("Tracking and Tracing")*. *[Quelle](%s)*'%LPI_categories_Link)
-    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts)**.')
+    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links/-4)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts/4)**.')
 
 
 LPI_cat='Tracking_Tracing'
@@ -560,11 +560,11 @@ st.markdown('''---''')
 if st.session_state['language'] == 'English':
     st.subheader('6. Timeliness')
     st.write('**Description:** The frequency with which shipments reach consignees within scheduled or expected delivery times *(“Timeliness”)*. *[soucre](%s)*'%LPI_categories_Link)
-    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left)** and then proceed in order to the most appropriate measures **(right)**.')
+    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left/-4)** and then proceed in order to the most appropriate measures **(right/4)**.')
 else:
     st.subheader('6. Pünktlichkeit')
     st.write('**Beschreibung:** Die Häufigkeit, mit der Sendungen die Empfänger innerhalb der geplanten oder erwarteten Lieferzeiten erreichen*("Timeliness")*. *[Quelle](%s)*'%LPI_categories_Link)
-    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts)**.')
+    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links/-4)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts/4)**.')
 
 
 LPI_cat='Timeliness'
