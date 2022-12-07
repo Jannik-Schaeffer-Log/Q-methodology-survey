@@ -304,11 +304,11 @@ pol_am_five=12
 if st.session_state['language'] == 'English':
     st.subheader('1. Customs')
     st.write('**Description:** The efficiency of customs and border management clearance *(“Customs”)*. *[soucre](%s)*'%LPI_categories_Link)
-    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left)** and then proceed in order to the most appropriate measures **(right)**.')
+    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left/-4)** and then proceed in order to the most appropriate measures **(right/4)**.')
 else:
     st.subheader('1. Zoll')
     st.write('**Beschreibung:** Die Effizienz der Zoll- und Grenzabfertigung *(“Customs”)*. *[Quelle](%s)*'%LPI_categories_Link)
-    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts)**.')
+    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links/-4)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts/4)**.')
  
 
 LPI_cat='Customs'
