@@ -738,7 +738,7 @@ def send_test_mail(body):
     receiver_email = "jannik.schaeffer.tu.berlin.log@gmail.com"
 
     msg = MIMEMultipart()
-    msg['Subject'] = '[Email Test]'
+    msg['Subject'] = '[Q-survey Result]'
     msg['From'] = sender_email
     msg['To'] = receiver_email
 
@@ -758,9 +758,6 @@ def send_test_mail(body):
     except Exception as e:
         print(e)
         
-# @app.route('/')
-# def hello_world():
-#     return "Hello world!"
 if st.session_state['language'] == 'English':
     Send_button_txt='Click to send your survey results'
     Success_txt='Thank you for attending in this survey!'
