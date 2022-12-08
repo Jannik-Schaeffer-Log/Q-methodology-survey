@@ -111,7 +111,7 @@ else:
     with st.expander('**Klicken um alle Policy-Maßnahmen einzusehen**') :
         st.dataframe(all_policies)
     st.markdown('''Jede der folgenden **6 Kategorien** ist eine der Dimensionen, auf denen der [Logistics Performance Index](%s) der Weltbank basiert.'''%LPI_Link)
-    st.markdown('''**Info:** Vergessen Sie nicht ihre Eingaben zu **SPEICHERN** und anschließend zu **SENDEN**.''')
+    st.markdown('''**Info:** Vergessen Sie nicht Ihre Eingaben zu **SPEICHERN** und anschließend zu **SENDEN**.''')
 
 st.markdown('''---''')   
 
@@ -710,7 +710,7 @@ if st.session_state['language'] == 'English':
     Mail_Feedback_txt='Enter your E-Mail and Feedback here.'
 else:
     info_saved_txt='Senden Sie nun Ihr Ergebnisse'
-    Contact_txt='Falls Sie ein Feedback haben, geben Sie es bitte unten ein und fügen Sie Ihre E-Mail hinzu, wenn Sie die endgültige Analyse zugeschickt bekommen möchten, sobald sie fertig ist.'
+    Contact_txt='Falls Sie ein Feedback haben, geben Sie es bitte unten ein und fügen Sie Ihre E-Mail hinzu, wenn Sie die endgültige Analyse zugeschickt bekommen möchten, sobald diese fertig ist.'
     Mail_Feedback_txt='Geben Sie ihre E-Mail-Adresse und ihr Feedback hier ein.'
 
 if st.session_state['survey_completion_check'] == 'survey saved':
