@@ -74,7 +74,7 @@ except:
 if st.session_state['language'] == 'English': 
     st.title('Sorting of policies to improve logistics performance')
 else: 
-    st.title('Zuordung von Policy-Maßnahmen zur Verbesserung der Logistik Performance')
+    st.title('Zuordung von Policy-Maßnahmen zur Verbesserung der Logistikperformance')
 
 LinkedIn_Link='https://www.linkedin.com/in/jannik-sch%C3%A4ffer'
 
