@@ -99,7 +99,7 @@ LPI_categories_Link='https://lpi.worldbank.org/international'
 if st.session_state['language'] == 'English': 
     st.subheader('Introduction')
     st.markdown('''Participation in this survey is voluntary and will take you up to **45 min**.''')
-    st.markdown('''**Your Task:** 50 policies should be ranked in ascending order of their potential to improve logistics performance in any category.''')
+    st.markdown('''**Task:** 50 policies should be ranked in ascending order of their potential to improve logistics performance in any category.''')
     with st.expander('**Click to see all available policies**') :
         st.dataframe(all_policies)
     st.markdown('''Each of the following **6 categories** is one of the dimensions on which the World Bank's [Logistics Performance Index](%s) is based.'''%LPI_Link)
@@ -107,7 +107,7 @@ if st.session_state['language'] == 'English':
 else:
     st.subheader('Einführung')
     st.markdown('''Eine Teilnahme an dieser Umfrage ist freiwillig und kann in Summe bis zu **45 min** dauern.''')
-    st.markdown('''**Ihr Aufgabe:** 50 Policies sollen ihrem Potenzial zur Verbesserung der Logistik-Performance in etwaigen Kategorie aufsteigend geordnet werden.''')
+    st.markdown('''**Aufgabe:** 50 Policies sollen ihrem Potenzial zur Verbesserung der Logistik-Performance in etwaigen Kategorie aufsteigend geordnet werden.''')
     with st.expander('**Klicken um alle Policy-Maßnahmen einzusehen**') :
         st.dataframe(all_policies)
     st.markdown('''Jede der folgenden **6 Kategorien** ist eine der Dimensionen, auf denen der [Logistics Performance Index](%s) der Weltbank basiert.'''%LPI_Link)
