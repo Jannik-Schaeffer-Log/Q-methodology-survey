@@ -107,7 +107,7 @@ if st.session_state['language'] == 'English':
 else:
     st.subheader('Einführung')
     st.markdown('''Eine Teilnahme an dieser Umfrage ist freiwillig und kann in Summe bis zu **45 min** dauern.''')
-    st.markdown('''**Aufgabe:** 50 Policies sollen ihrem Potenzial zur Verbesserung der Logistik-Performance in etwaigen Kategorie aufsteigend geordnet werden.''')
+    st.markdown('''**Aufgabe:** 50 Policies sollen ihrem Potenzial zur Verbesserung der Logistikperformance in etwaigen Kategorie aufsteigend geordnet werden.''')
     with st.expander('**Klicken um alle Policy-Maßnahmen einzusehen**') :
         st.dataframe(all_policies)
     st.markdown('''Jede der folgenden **6 Kategorien** ist eine der Dimensionen, auf denen der [Logistics Performance Index](%s) der Weltbank basiert.'''%LPI_Link)
