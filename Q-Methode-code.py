@@ -715,13 +715,24 @@ if st.session_state['language'] == 'English':
     info_saved_txt='Continue and send your results'
     Contact_txt='In case of any feedback please enter it down bellow and add your E-Mail if you would like to get sent the final analysis once it´s done.'
     Mail_Feedback_txt='Enter your E-Mail and Feedback here.'
+    Background_question='Choose your background.'
+    roll=['', 'Logistics', 'Food Industry', 'Academia', 'Student', 'Other']
+    Background_info='Please choose a background.'
 else:
     info_saved_txt='Senden Sie nun Ihr Ergebnisse'
     Contact_txt='Falls Sie ein Feedback haben, geben Sie es bitte unten ein und fügen Sie Ihre E-Mail hinzu, wenn Sie die endgültige Analyse zugeschickt bekommen möchten, sobald diese fertig ist.'
     Mail_Feedback_txt='Geben Sie ihre E-Mail-Adresse und ihr Feedback hier ein.'
+    Background_question='Wählen Sie einen Hintergrund.'
+    roll=['','Logistik', 'Lebensmittelindustrie', 'Wissenschaft','Student', 'Anderer']
+    Background_info='Bitte wählen Sie einen Hintergrund.'
 
+st.session_state['survey_completion_check'] = 'survey saved'
+    
 if st.session_state['survey_completion_check'] == 'survey saved':
     st.info(info_saved_txt)
+    chosen_roll = st.selectbox(Background_question,roll)
+    if len(chosen_roll)<1:
+        st.error(Background_info)
     st.write(Contact_txt)
     Mail_Feedback_Input_txt=st.text_input(Mail_Feedback_txt)
 
@@ -745,7 +756,7 @@ def send_test_mail(body):
     receiver_email = "jannik.schaeffer.tu.berlin.log@gmail.com"
 
     msg = MIMEMultipart()
-    msg['Subject'] = '[Q-survey Result]'
+    msg['Subject'] = '[Q-survey Result] '+chosen_roll
     msg['From'] = sender_email
     msg['To'] = receiver_email
 
