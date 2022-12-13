@@ -756,7 +756,7 @@ def send_test_mail(body):
     receiver_email = "jannik.schaeffer.tu.berlin.log@gmail.com"
 
     msg = MIMEMultipart()
-    msg['Subject'] = '[Q-survey Result] '+chosen_roll
+    msg['Subject'] = '[Q-survey Result], roll:'+chosen_roll
     msg['From'] = sender_email
     msg['To'] = receiver_email
 
