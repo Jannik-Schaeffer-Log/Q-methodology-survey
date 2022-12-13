@@ -4,6 +4,7 @@
 import numpy as np
 import pandas as pd
 import streamlit as st
+from PIL import Image
 
 st.set_page_config(page_title="Q-Methodology", page_icon="🥑",layout="wide")
 
@@ -20,6 +21,8 @@ with st.sidebar:
 df_policies_colnames=['No.','Policy','Policies Deutsch','Benefits','Risks']
 
 df_policies= pd.read_csv("data/All_Food_Loss_Policies.csv", delimiter=';')
+
+image = Image.open('data/Beispiel_Q_Sort.PNG')
 
 if st.session_state['language'] == 'English':
     policy_column='Policy'
@@ -103,6 +106,8 @@ if st.session_state['language'] == 'English':
     with st.expander('**Click to see all available policies**') :
         st.dataframe(all_policies)
     st.markdown('''Each of the following **6 categories** is one of the dimensions on which the World Bank's [Logistics Performance Index](%s) is based.'''%LPI_Link)
+    with st.expander('Click here to see an sample survey'):
+        st.image(image)
     st.markdown('''**Note:** Don't forget to **SAVE** and **SEND** your entries.''')
 else:
     st.subheader('Einführung')
@@ -111,6 +116,8 @@ else:
     with st.expander('**Klicken um alle Policy-Maßnahmen einzusehen**') :
         st.dataframe(all_policies)
     st.markdown('''Jede der folgenden **6 Kategorien** ist eine der Dimensionen, auf denen der [Logistics Performance Index](%s) der Weltbank basiert.'''%LPI_Link)
+    with st.expander('Klicken Sie hier, um eine beispielhafte Umfrage zu sehen'):
+        st.image(image)
     st.markdown('''**Info:** Vergessen Sie nicht Ihre Eingaben zu **SPEICHERN** und anschließend zu **SENDEN**.''')
 
 st.markdown('''---''')   
