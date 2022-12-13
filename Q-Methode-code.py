@@ -725,9 +725,7 @@ else:
     Background_question='Wählen Sie einen Hintergrund.'
     roll=['','Logistik', 'Lebensmittelindustrie', 'Wissenschaft','Student', 'Anderer']
     Background_info='Bitte wählen Sie einen Hintergrund.'
-
-st.session_state['survey_completion_check'] = 'survey saved'
-    
+   
 if st.session_state['survey_completion_check'] == 'survey saved':
     st.info(info_saved_txt)
     chosen_roll = st.selectbox(Background_question,roll)
