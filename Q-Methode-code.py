@@ -450,39 +450,30 @@ col1, col2, col3, col4, col5, col6, col7, col8, col9, = st.columns(9)
 with col1:
     list_of_selected_policies1_LPI2 = create_column_content(pol_am_one,-4,policies_LPI2)
     policies_LPI2=list(filter(lambda x: x not in list(list_of_selected_policies1_LPI2['policies']), policies_LPI2))
-    check_completion(list_of_selected_policies1_LPI2,pol_am_one,'infrastructure',1)
 with col2:
     list_of_selected_policies2_LPI2 = create_column_content(pol_am_two,-3,policies_LPI2)
     policies_LPI2=list(filter(lambda x: x not in list(list_of_selected_policies2_LPI2['policies']), policies_LPI2))
-    check_completion(list_of_selected_policies2_LPI2,pol_am_two,'infrastructure',2)
 with col3:
     list_of_selected_policies3_LPI2 = create_column_content(pol_am_three,-2,policies_LPI2)
     policies_LPI2=list(filter(lambda x: x not in list(list_of_selected_policies3_LPI2['policies']), policies_LPI2))
-    check_completion(list_of_selected_policies3_LPI2,pol_am_three,'infrastructure',3)
 with col4:
     list_of_selected_policies4_LPI2 = create_column_content(pol_am_four,-1,policies_LPI2)
     policies_LPI2=list(filter(lambda x: x not in list(list_of_selected_policies4_LPI2['policies']), policies_LPI2))
-    check_completion(list_of_selected_policies4_LPI2,7,'infrastructure',4)
 with col5:
     list_of_selected_policies5_LPI2 = create_column_content(pol_am_five,0,policies_LPI2)
     policies_LPI2=list(filter(lambda x: x not in list(list_of_selected_policies5_LPI2['policies']), policies_LPI2))
-    check_completion(list_of_selected_policies5_LPI2,pol_am_five,'infrastructure',5)
 with col6:
     list_of_selected_policies6_LPI2 = create_column_content(pol_am_four,1,policies_LPI2)
     policies_LPI2=list(filter(lambda x: x not in list(list_of_selected_policies6_LPI2['policies']), policies_LPI2))
-    check_completion(list_of_selected_policies6_LPI2,7,'infrastructure',6)
 with col7:
     list_of_selected_policies7_LPI2 = create_column_content(pol_am_three,2,policies_LPI2)
     policies_LPI2=list(filter(lambda x: x not in list(list_of_selected_policies7_LPI2['policies']), policies_LPI2))
-    check_completion(list_of_selected_policies7_LPI2,pol_am_three,'infrastructure',7)
 with col8:
     list_of_selected_policies8_LPI2 = create_column_content(pol_am_two,3,policies_LPI2)
     policies_LPI2=list(filter(lambda x: x not in list(list_of_selected_policies8_LPI2['policies']), policies_LPI2))
-    check_completion(list_of_selected_policies8_LPI2,pol_am_two,'infrastructure',8)
 with col9:
     list_of_selected_policies9_LPI2 = create_column_content(pol_am_one,4,policies_LPI2)
-    policies_LPI2=list(filter(lambda x: x not in list(list_of_selected_policies9_LPI2['policies']), policies_LPI2))
-    check_completion(list_of_selected_policies9_LPI2,pol_am_one,'infrastructure',9)  
+    policies_LPI2=list(filter(lambda x: x not in list(list_of_selected_policies9_LPI2['policies']), policies_LPI2)) 
 
 
 st.info(info_message_save)
@@ -568,39 +559,30 @@ col1, col2, col3, col4, col5, col6, col7, col8, col9, = st.columns(9)
 with col1:
     list_of_selected_policies1_LPI3 = create_column_content(pol_am_one,-4,policies_LPI3)
     policies_LPI3=list(filter(lambda x: x not in list(list_of_selected_policies1_LPI3['policies']), policies_LPI3))
-    check_completion(list_of_selected_policies1_LPI3,pol_am_one,'international_shipments',1)
 with col2:
     list_of_selected_policies2_LPI3 = create_column_content(pol_am_two,-3,policies_LPI3)
     policies_LPI3=list(filter(lambda x: x not in list(list_of_selected_policies2_LPI3['policies']), policies_LPI3))
-    check_completion(list_of_selected_policies2_LPI3,pol_am_two,'international_shipments',2)
 with col3:
     list_of_selected_policies3_LPI3 = create_column_content(pol_am_three,-2,policies_LPI3)
     policies_LPI3=list(filter(lambda x: x not in list(list_of_selected_policies3_LPI3['policies']), policies_LPI3))
-    check_completion(list_of_selected_policies3_LPI3,pol_am_three,'international_shipments',3)
 with col4:
     list_of_selected_policies4_LPI3 = create_column_content(pol_am_four,-1,policies_LPI3)
     policies_LPI3=list(filter(lambda x: x not in list(list_of_selected_policies4_LPI3['policies']), policies_LPI3))
-    check_completion(list_of_selected_policies4_LPI3,pol_am_four,'international_shipments',4)
 with col5:
     list_of_selected_policies5_LPI3 = create_column_content(pol_am_five,0,policies_LPI3)
     policies_LPI3=list(filter(lambda x: x not in list(list_of_selected_policies5_LPI3['policies']), policies_LPI3))
-    check_completion(list_of_selected_policies5_LPI3,pol_am_five,'international_shipments',5)
 with col6:
     list_of_selected_policies6_LPI3 = create_column_content(pol_am_four,1,policies_LPI3)
     policies_LPI3=list(filter(lambda x: x not in list(list_of_selected_policies6_LPI3['policies']), policies_LPI3))
-    check_completion(list_of_selected_policies6_LPI3,pol_am_four,'international_shipments',6)
 with col7:
     list_of_selected_policies7_LPI3 = create_column_content(pol_am_three,2,policies_LPI3)
     policies_LPI3=list(filter(lambda x: x not in list(list_of_selected_policies7_LPI3['policies']), policies_LPI3))
-    check_completion(list_of_selected_policies7_LPI3,pol_am_three,'international_shipments',7)
 with col8:
     list_of_selected_policies8_LPI3 = create_column_content(pol_am_two,3,policies_LPI3)
     policies_LPI3=list(filter(lambda x: x not in list(list_of_selected_policies8_LPI3['policies']), policies_LPI3))
-    check_completion(list_of_selected_policies8_LPI3,pol_am_two,'international_shipments',8)
 with col9:
     list_of_selected_policies9_LPI3 = create_column_content(pol_am_one,4,policies_LPI3)
     policies_LPI3=list(filter(lambda x: x not in list(list_of_selected_policies9_LPI3['policies']), policies_LPI3))
-    check_completion(list_of_selected_policies9_LPI3,pol_am_one,'international_shipments',9)
 
 st.info(info_message_save)
 
@@ -685,39 +667,30 @@ col1, col2, col3, col4, col5, col6, col7, col8, col9, = st.columns(9)
 with col1:
     list_of_selected_policies1_LPI4 = create_column_content(pol_am_one,-4,policies_LPI4)
     policies_LPI4=list(filter(lambda x: x not in list(list_of_selected_policies1_LPI4['policies']), policies_LPI4))
-    check_completion(list_of_selected_policies1_LPI4,pol_am_one,'logistics_competences',1)
 with col2:
     list_of_selected_policies2_LPI4 = create_column_content(pol_am_two,-3,policies_LPI4)
     policies_LPI4=list(filter(lambda x: x not in list(list_of_selected_policies2_LPI4['policies']), policies_LPI4))
-    check_completion(list_of_selected_policies2_LPI4,pol_am_two,'logistics_competences',2)
 with col3:
     list_of_selected_policies3_LPI4 = create_column_content(pol_am_three,-2,policies_LPI4)
     policies_LPI4=list(filter(lambda x: x not in list(list_of_selected_policies3_LPI4['policies']), policies_LPI4))
-    check_completion(list_of_selected_policies3_LPI4,pol_am_three,'logistics_competences',3)
 with col4:
     list_of_selected_policies4_LPI4 = create_column_content(pol_am_four,-1,policies_LPI4)
     policies_LPI4=list(filter(lambda x: x not in list(list_of_selected_policies4_LPI4['policies']), policies_LPI4))
-    check_completion(list_of_selected_policies4_LPI4,pol_am_four,'logistics_competences',4)
 with col5:
     list_of_selected_policies5_LPI4 = create_column_content(pol_am_five,0,policies_LPI4)
     policies_LPI4=list(filter(lambda x: x not in list(list_of_selected_policies5_LPI4['policies']), policies_LPI4))
-    check_completion(list_of_selected_policies5_LPI4,pol_am_five,'logistics_competences',5)
 with col6:
     list_of_selected_policies6_LPI4 = create_column_content(pol_am_four,1,policies_LPI4)
     policies_LPI4=list(filter(lambda x: x not in list(list_of_selected_policies6_LPI4['policies']), policies_LPI4))
-    check_completion(list_of_selected_policies6_LPI4,pol_am_four,'logistics_competences',6)
 with col7:
     list_of_selected_policies7_LPI4 = create_column_content(pol_am_three,2,policies_LPI4)
     policies_LPI4=list(filter(lambda x: x not in list(list_of_selected_policies7_LPI4['policies']), policies_LPI4))
-    check_completion(list_of_selected_policies7_LPI4,pol_am_three,'logistics_competences',7)
 with col8:
     list_of_selected_policies8_LPI4 = create_column_content(pol_am_two,3,policies_LPI4)
     policies_LPI4=list(filter(lambda x: x not in list(list_of_selected_policies8_LPI4['policies']), policies_LPI4))
-    check_completion(list_of_selected_policies8_LPI4,pol_am_two,'logistics_competences',8)
 with col9:
     list_of_selected_policies9_LPI4 = create_column_content(pol_am_one,4,policies_LPI4)
     policies_LPI4=list(filter(lambda x: x not in list(list_of_selected_policies9_LPI4['policies']), policies_LPI4))
-    check_completion(list_of_selected_policies9_LPI4,pol_am_one,'logistics_competences',9)
 
 st.info(info_message_save)
 
@@ -801,39 +774,30 @@ col1, col2, col3, col4, col5, col6, col7, col8, col9, = st.columns(9)
 with col1:
     list_of_selected_policies1_LPI5 = create_column_content(pol_am_one,-4,policies_LPI5)
     policies_LPI5=list(filter(lambda x: x not in list(list_of_selected_policies1_LPI5['policies']), policies_LPI5))
-    check_completion(list_of_selected_policies1_LPI5,pol_am_one,'tracking_tracing',1)
 with col2:
     list_of_selected_policies2_LPI5 = create_column_content(pol_am_two,-3,policies_LPI5)
     policies_LPI5=list(filter(lambda x: x not in list(list_of_selected_policies2_LPI5['policies']), policies_LPI5))
-    check_completion(list_of_selected_policies2_LPI5,pol_am_two,'tracking_tracing',2)
 with col3:
     list_of_selected_policies3_LPI5 = create_column_content(pol_am_three,-2,policies_LPI5)
     policies_LPI5=list(filter(lambda x: x not in list(list_of_selected_policies3_LPI5['policies']), policies_LPI5))
-    check_completion(list_of_selected_policies3_LPI5,pol_am_three,'tracking_tracing',3)
 with col4:
     list_of_selected_policies4_LPI5 = create_column_content(pol_am_four,-1,policies_LPI5)
     policies_LPI5=list(filter(lambda x: x not in list(list_of_selected_policies4_LPI5['policies']), policies_LPI5))
-    check_completion(list_of_selected_policies4_LPI5,pol_am_four,'tracking_tracing',4)
 with col5:
     list_of_selected_policies5_LPI5 = create_column_content(pol_am_five,0,policies_LPI5)
     policies_LPI5=list(filter(lambda x: x not in list(list_of_selected_policies5_LPI5['policies']), policies_LPI5))
-    check_completion(list_of_selected_policies5_LPI5,pol_am_five,'tracking_tracing',5)
 with col6:
     list_of_selected_policies6_LPI5 = create_column_content(pol_am_four,1,policies_LPI5)
     policies_LPI5=list(filter(lambda x: x not in list(list_of_selected_policies6_LPI5['policies']), policies_LPI5))
-    check_completion(list_of_selected_policies6_LPI5,pol_am_four,'tracking_tracing',6)
 with col7:
     list_of_selected_policies7_LPI5 = create_column_content(pol_am_three,2,policies_LPI5)
     policies_LPI5=list(filter(lambda x: x not in list(list_of_selected_policies7_LPI5['policies']), policies_LPI5))
-    check_completion(list_of_selected_policies7_LPI5,pol_am_three,'tracking_tracing',7)
 with col8:
     list_of_selected_policies8_LPI5 = create_column_content(pol_am_two,3,policies_LPI5)
     policies_LPI5=list(filter(lambda x: x not in list(list_of_selected_policies8_LPI5['policies']), policies_LPI5))
-    check_completion(list_of_selected_policies8_LPI5,pol_am_two,'tracking_tracing',8)
 with col9:
     list_of_selected_policies9_LPI5 = create_column_content(pol_am_one,4,policies_LPI5)
     policies_LPI5=list(filter(lambda x: x not in list(list_of_selected_policies9_LPI5['policies']), policies_LPI5))
-    check_completion(list_of_selected_policies9_LPI5,pol_am_one,'tracking_tracing',9)
 
 st.info(info_message_save)
 
@@ -917,39 +881,30 @@ col1, col2, col3, col4, col5, col6, col7, col8, col9, = st.columns(9)
 with col1:
     list_of_selected_policies1_LPI6 = create_column_content(pol_am_one,-4,policies_LPI6)
     policies_LPI6=list(filter(lambda x: x not in list(list_of_selected_policies1_LPI6['policies']), policies_LPI6))
-    check_completion(list_of_selected_policies1_LPI6,pol_am_one,'timeliness',1)
 with col2:
     list_of_selected_policies2_LPI6 = create_column_content(pol_am_two,-3,policies_LPI6)
     policies_LPI6=list(filter(lambda x: x not in list(list_of_selected_policies2_LPI6['policies']), policies_LPI6))
-    check_completion(list_of_selected_policies2_LPI6,pol_am_two,'timeliness',2)
 with col3:
     list_of_selected_policies3_LPI6 = create_column_content(pol_am_three,-2,policies_LPI6)
     policies_LPI6=list(filter(lambda x: x not in list(list_of_selected_policies3_LPI6['policies']), policies_LPI6))
-    check_completion(list_of_selected_policies3_LPI6,pol_am_three,'timeliness',3)
 with col4:
     list_of_selected_policies4_LPI6 = create_column_content(pol_am_four,-1,policies_LPI6)
     policies_LPI6=list(filter(lambda x: x not in list(list_of_selected_policies4_LPI6['policies']), policies_LPI6))
-    check_completion(list_of_selected_policies4_LPI6,pol_am_four,'timeliness',4)
 with col5:
     list_of_selected_policies5_LPI6 = create_column_content(pol_am_five,0,policies_LPI6)
     policies_LPI6=list(filter(lambda x: x not in list(list_of_selected_policies5_LPI6['policies']), policies_LPI6))
-    check_completion(list_of_selected_policies5_LPI6,pol_am_five,'timeliness',5)
 with col6:
     list_of_selected_policies6_LPI6 = create_column_content(pol_am_four,1,policies_LPI6)
     policies_LPI6=list(filter(lambda x: x not in list(list_of_selected_policies6_LPI6['policies']), policies_LPI6))
-    check_completion(list_of_selected_policies6_LPI6,pol_am_four,'timeliness',6)
 with col7:
     list_of_selected_policies7_LPI6 = create_column_content(pol_am_three,2,policies_LPI6)
     policies_LPI6=list(filter(lambda x: x not in list(list_of_selected_policies7_LPI6['policies']), policies_LPI6))
-    check_completion(list_of_selected_policies7_LPI6,pol_am_three,'timeliness',7)
 with col8:
     list_of_selected_policies8_LPI6 = create_column_content(pol_am_two,3,policies_LPI6)
     policies_LPI6=list(filter(lambda x: x not in list(list_of_selected_policies8_LPI6['policies']), policies_LPI6))
-    check_completion(list_of_selected_policies8_LPI6,pol_am_two,'timeliness',8)
 with col9:
     list_of_selected_policies9_LPI6 = create_column_content(pol_am_one,4,policies_LPI6)
     policies_LPI6=list(filter(lambda x: x not in list(list_of_selected_policies9_LPI6['policies']), policies_LPI6))
-    check_completion(list_of_selected_policies9_LPI6,pol_am_one,'timeliness',9)
 
 st.info(info_message_save)
 
