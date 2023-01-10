@@ -4,6 +4,7 @@
 import numpy as np
 import pandas as pd
 import streamlit as st
+import random
 from PIL import Image
 
 st.set_page_config(page_title="Q-Methodology", page_icon="🥑",layout="wide")
@@ -20,21 +21,28 @@ with st.sidebar:
 ########################################
 df_policies_colnames=['No.','Policy','Policies Deutsch','Benefits','Risks']
 
-df_policies= pd.read_csv("data/All_Food_Loss_Policies.csv", delimiter=';')
+df_policies= pd.read_csv("data/All_Food_Loss_Policies.csv", delimiter=';')#, names=df_policies_colnames)
 
 image = Image.open('data/Beispiel_Q_Sort.PNG')
 
 if st.session_state['language'] == 'English':
     policy_column='Policy'
+    info_about_seed='Your current seed is '
+    change_seed_button_lable='change seed'
+    select_box_seed_label='select your previous session key'
 else:
     policy_column='Policies Deutsch'
+    info_about_seed='Der aktuelle Seed lautet '
+    change_seed_button_lable='Seed ändern'
+    select_box_seed_label='Wählen Sie ihren vorherigen Seed aus'
 
-all_policies=df_policies[policy_column].unique()
+all_policies=list(df_policies[policy_column].unique())
 
-#shuffle policies
+#shuffle policies 
+
 if 'shuffle_seed' not in st.session_state:
-    st.session_state['shuffle_seed'] = np.random.randint(0, 100000) 
-
+    st.session_state['shuffle_seed'] = np.random.randint(0, 100000)
+session_seed=st.session_state['shuffle_seed']
 np.random.seed(st.session_state['shuffle_seed']) 
 np.random.shuffle(all_policies)
 
@@ -77,7 +85,7 @@ except:
 if st.session_state['language'] == 'English': 
     st.title('Sorting of policies to improve logistics performance')
 else: 
-    st.title('Zuordung von Policy-Maßnahmen zur Verbesserung der Logistikperformance')
+    st.title('Zuordung von Policy-Maßnahmen zur Verbesserung der Logistik Performance')
 
 LinkedIn_Link='https://www.linkedin.com/in/jannik-sch%C3%A4ffer'
 
@@ -102,8 +110,8 @@ LPI_categories_Link='https://lpi.worldbank.org/international'
 if st.session_state['language'] == 'English': 
     st.subheader('Introduction')
     st.markdown('''Participation in this survey is voluntary and will take you up to **45 min**.''')
-    st.markdown('''**Task:** 50 policies should be ranked in ascending order of their potential to improve logistics performance in any category.''')
-    with st.expander('**Click to see all available policies**') :
+    st.markdown('''**Your Task:** 50 policies should be ranked in ascending order of their potential to improve logistics performance in any category.''')
+    with st.expander('**Click here to see all available policies**') :
         st.dataframe(all_policies)
     st.markdown('''Each of the following **6 categories** is one of the dimensions on which the World Bank's [Logistics Performance Index](%s) is based.'''%LPI_Link)
     with st.expander('Click here to see an sample survey'):
@@ -112,13 +120,13 @@ if st.session_state['language'] == 'English':
 else:
     st.subheader('Einführung')
     st.markdown('''Eine Teilnahme an dieser Umfrage ist freiwillig und kann in Summe bis zu **45 min** dauern.''')
-    st.markdown('''**Aufgabe:** 50 Policies sollen ihrem Potenzial zur Verbesserung der Logistikperformance in etwaigen Kategorie aufsteigend geordnet werden.''')
-    with st.expander('**Klicken um alle Policy-Maßnahmen einzusehen**') :
+    st.markdown('''**Ihr Aufgabe:** 50 Policies sollen ihrem Potenzial zur Verbesserung der Logistik-Performance in etwaigen Kategorie aufsteigend geordnet werden.''')
+    with st.expander('**Klicken Sie hier, um alle Policy-Maßnahmen einzusehen**') :
         st.dataframe(all_policies)
     st.markdown('''Jede der folgenden **6 Kategorien** ist eine der Dimensionen, auf denen der [Logistics Performance Index](%s) der Weltbank basiert.'''%LPI_Link)
     with st.expander('Klicken Sie hier, um eine beispielhafte Umfrage zu sehen'):
         st.image(image)
-    st.markdown('''**Info:** Vergessen Sie nicht Ihre Eingaben zu **SPEICHERN** und anschließend zu **SENDEN**.''')
+    st.markdown('''**Info:** Vergessen Sie nicht ihre Eingaben zu **SPEICHERN** und anschließend zu **SENDEN**.''')
 
 st.markdown('''---''')   
 
@@ -309,53 +317,119 @@ pol_am_four=7
 pol_am_five=12
 
 if st.session_state['language'] == 'English':
+    save_button_label_LPI1='save category: Customs'
+    info_message_save='Please save your entries immediatly after finishing the category to prevent any dataloss.'
+    saved_inputs_label='Saved Entries:'
+else:
+    save_button_label_LPI1='Kategorie speichern: Zoll'
+    info_message_save='Bitte speichern Sie direkt nach dem Ausfüllen einer Kategorie, um mögliche Datenverluste zu vermeiden.'
+    saved_inputs_label='Gespeicherte Eingaben:'
+
+if st.session_state['language'] == 'English':
     st.subheader('1. Customs')
     st.write('**Description:** The efficiency of customs and border management clearance *(“Customs”)*. *[soucre](%s)*'%LPI_categories_Link)
-    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left/-4)** and then proceed in order to the most appropriate measures **(right/4)**.')
+    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left)** and then proceed in order to the most appropriate measures **(right)**.')
 else:
     st.subheader('1. Zoll')
     st.write('**Beschreibung:** Die Effizienz der Zoll- und Grenzabfertigung *(“Customs”)*. *[Quelle](%s)*'%LPI_categories_Link)
-    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links/-4)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts/4)**.')
+    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts)**.')
  
 
 LPI_cat='Customs'
 col1, col2, col3, col4, col5, col6, col7, col8, col9, = st.columns(9)
 with col1:
     list_of_selected_policies1_LPI1 = create_column_content(pol_am_one,-4,policies_LPI1)
-    policies_LPI1=list(filter(lambda x: x not in list(list_of_selected_policies1_LPI1['policies']), policies_LPI1))
-    check_completion(list_of_selected_policies1_LPI1,pol_am_one,'customs',1)
+    policies_LPI1=list(filter(lambda x: x not in list(list_of_selected_policies1_LPI1['policies']), policies_LPI1)) 
 with col2:
     list_of_selected_policies2_LPI1 = create_column_content(pol_am_two,-3,policies_LPI1)
     policies_LPI1=list(filter(lambda x: x not in list(list_of_selected_policies2_LPI1['policies']), policies_LPI1))
-    check_completion(list_of_selected_policies2_LPI1,pol_am_two,'customs',2)
 with col3:
     list_of_selected_policies3_LPI1 = create_column_content(pol_am_three,-2,policies_LPI1)
     policies_LPI1=list(filter(lambda x: x not in list(list_of_selected_policies3_LPI1['policies']), policies_LPI1))
-    check_completion(list_of_selected_policies3_LPI1,pol_am_three,'customs',3)
 with col4:
     list_of_selected_policies4_LPI1 = create_column_content(pol_am_four,-1,policies_LPI1)
     policies_LPI1=list(filter(lambda x: x not in list(list_of_selected_policies4_LPI1['policies']), policies_LPI1))
-    check_completion(list_of_selected_policies4_LPI1,pol_am_four,'customs',4)
 with col5:
     list_of_selected_policies5_LPI1 = create_column_content(pol_am_five,0,policies_LPI1)
     policies_LPI1=list(filter(lambda x: x not in list(list_of_selected_policies5_LPI1['policies']), policies_LPI1))
-    check_completion(list_of_selected_policies5_LPI1,pol_am_five,'customs',5)
 with col6:
     list_of_selected_policies6_LPI1 = create_column_content(pol_am_four,1,policies_LPI1)
     policies_LPI1=list(filter(lambda x: x not in list(list_of_selected_policies6_LPI1['policies']), policies_LPI1))
-    check_completion(list_of_selected_policies6_LPI1,pol_am_four,'customs',6)
 with col7:
     list_of_selected_policies7_LPI1 = create_column_content(pol_am_three,2,policies_LPI1)
     policies_LPI1=list(filter(lambda x: x not in list(list_of_selected_policies7_LPI1['policies']), policies_LPI1))
-    check_completion(list_of_selected_policies7_LPI1,pol_am_three,'customs',7)
 with col8:
     list_of_selected_policies8_LPI1 = create_column_content(pol_am_two,3,policies_LPI1)
     policies_LPI1=list(filter(lambda x: x not in list(list_of_selected_policies8_LPI1['policies']), policies_LPI1))
-    check_completion(list_of_selected_policies8_LPI1,pol_am_two,'customs',8)
 with col9:
     list_of_selected_policies9_LPI1 = create_column_content(pol_am_one,4,policies_LPI1)
     policies_LPI1=list(filter(lambda x: x not in list(list_of_selected_policies9_LPI1['policies']), policies_LPI1))
+
+
+
+st.info(info_message_save)
+
+#save policy inputs to prevent data loss
+if st.button(save_button_label_LPI1):
+    list_of_selected_policies1_LPI1.to_csv('data/list_of_selected_policies1_LPI1.csv',sep=',')
+    list_of_selected_policies2_LPI1.to_csv('data/list_of_selected_policies2_LPI1.csv',sep=',')
+    list_of_selected_policies3_LPI1.to_csv('data/list_of_selected_policies3_LPI1.csv',sep=',') 
+    list_of_selected_policies4_LPI1.to_csv('data/list_of_selected_policies4_LPI1.csv',sep=',') 
+    list_of_selected_policies5_LPI1.to_csv('data/list_of_selected_policies5_LPI1.csv',sep=',') 
+    list_of_selected_policies6_LPI1.to_csv('data/list_of_selected_policies6_LPI1.csv',sep=',') 
+    list_of_selected_policies7_LPI1.to_csv('data/list_of_selected_policies7_LPI1.csv',sep=',') 
+    list_of_selected_policies8_LPI1.to_csv('data/list_of_selected_policies8_LPI1.csv',sep=',') 
+    list_of_selected_policies9_LPI1.to_csv('data/list_of_selected_policies9_LPI1.csv',sep=',')   
+
+st.write(saved_inputs_label)
+
+#check saved Inputs
+col1, col2, col3, col4, col5, col6, col7, col8, col9, = st.columns(9)
+with col1:
+    list_of_selected_policies1_LPI1_saved=pd.read_csv("data/list_of_selected_policies1_LPI1.csv", sep=',')
+    st.dataframe(list_of_selected_policies1_LPI1_saved['policies'])
+    check_completion(list_of_selected_policies1_LPI1_saved,pol_am_one,'customs',1)
+
+with col2:
+    list_of_selected_policies2_LPI1_saved=pd.read_csv("data/list_of_selected_policies2_LPI1.csv", sep=',')
+    st.dataframe(list_of_selected_policies2_LPI1_saved['policies'])
+    check_completion(list_of_selected_policies2_LPI1_saved,pol_am_two,'customs',2)
+    
+with col3:
+    list_of_selected_policies3_LPI1_saved=pd.read_csv("data/list_of_selected_policies3_LPI1.csv", sep=',')
+    st.dataframe(list_of_selected_policies3_LPI1_saved['policies'])
+    check_completion(list_of_selected_policies3_LPI1_saved,pol_am_three,'customs',3)
+    
+with col4:
+    list_of_selected_policies4_LPI1_saved=pd.read_csv("data/list_of_selected_policies4_LPI1.csv", sep=',')
+    st.dataframe(list_of_selected_policies4_LPI1_saved['policies'])
+    check_completion(list_of_selected_policies4_LPI1_saved,pol_am_four,'customs',4)
+
+with col5:
+    list_of_selected_policies5_LPI1_saved=pd.read_csv("data/list_of_selected_policies5_LPI1.csv", sep=',')
+    st.dataframe(list_of_selected_policies5_LPI1_saved['policies'])
+    check_completion(list_of_selected_policies5_LPI1,pol_am_five,'customs',5)
+
+with col6:
+    list_of_selected_policies6_LPI1_saved=pd.read_csv("data/list_of_selected_policies6_LPI1.csv", sep=',')
+    st.dataframe(list_of_selected_policies6_LPI1_saved['policies'])
+    check_completion(list_of_selected_policies6_LPI1_saved,pol_am_four,'customs',6)
+
+with col7:
+    list_of_selected_policies7_LPI1_saved=pd.read_csv("data/list_of_selected_policies7_LPI1.csv", sep=',')
+    st.dataframe(list_of_selected_policies7_LPI1_saved['policies'])
+    check_completion(list_of_selected_policies7_LPI1_saved,pol_am_three,'customs',7)
+
+with col8:
+    list_of_selected_policies8_LPI1_saved=pd.read_csv("data/list_of_selected_policies8_LPI1.csv", sep=',')
+    st.dataframe(list_of_selected_policies8_LPI1_saved['policies'])  
+    check_completion(list_of_selected_policies8_LPI1_saved,pol_am_two,'customs',8)
+
+with col9:
+    list_of_selected_policies9_LPI1_saved=pd.read_csv("data/list_of_selected_policies9_LPI1.csv", sep=',')
+    st.dataframe(list_of_selected_policies9_LPI1_saved['policies']) 
     check_completion(list_of_selected_policies9_LPI1,pol_am_one,'customs',9)
+
 check_category_completion('customs')
 st.markdown('''---''')
 
@@ -363,11 +437,13 @@ st.markdown('''---''')
 if st.session_state['language'] == 'English':
     st.subheader('2. Infrastructure')
     st.write('**Description:** The quality of trade and transport infrastructure *(”Infrastructure”)*. *[soucre](%s)*'%LPI_categories_Link)
-    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left/-4)** and then proceed in order to the most appropriate measures **(right/4)**.')
+    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left)** and then proceed in order to the most appropriate measures **(right)**.')
+    save_button_label_LPI2='save category: Infrastructure'
 else:
     st.subheader('2. Infrastruktur')
     st.write('**Beschreibung:** Die Qualität der Handels- und Verkehrsinfrastruktur *(“Infrastructure”)*. *[Quelle](%s)*'%LPI_categories_Link)
-    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links/-4)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts/4)**.')
+    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts)**.')
+    save_button_label_LPI2='Kategorie speichern: Infrastuktur'
 
 LPI_cat='Infrastructure'
 col1, col2, col3, col4, col5, col6, col7, col8, col9, = st.columns(9)
@@ -407,6 +483,71 @@ with col9:
     list_of_selected_policies9_LPI2 = create_column_content(pol_am_one,4,policies_LPI2)
     policies_LPI2=list(filter(lambda x: x not in list(list_of_selected_policies9_LPI2['policies']), policies_LPI2))
     check_completion(list_of_selected_policies9_LPI2,pol_am_one,'infrastructure',9)  
+
+
+st.info(info_message_save)
+
+#save policy inputs to prevent data loss
+if st.button(save_button_label_LPI2):
+    list_of_selected_policies1_LPI2.to_csv('data/list_of_selected_policies1_LPI2.csv',sep=',')
+    list_of_selected_policies2_LPI2.to_csv('data/list_of_selected_policies2_LPI2.csv',sep=',')
+    list_of_selected_policies3_LPI2.to_csv('data/list_of_selected_policies3_LPI2.csv',sep=',') 
+    list_of_selected_policies4_LPI2.to_csv('data/list_of_selected_policies4_LPI2.csv',sep=',') 
+    list_of_selected_policies5_LPI2.to_csv('data/list_of_selected_policies5_LPI2.csv',sep=',') 
+    list_of_selected_policies6_LPI2.to_csv('data/list_of_selected_policies6_LPI2.csv',sep=',') 
+    list_of_selected_policies7_LPI2.to_csv('data/list_of_selected_policies7_LPI2.csv',sep=',') 
+    list_of_selected_policies8_LPI2.to_csv('data/list_of_selected_policies8_LPI2.csv',sep=',') 
+    list_of_selected_policies9_LPI2.to_csv('data/list_of_selected_policies9_LPI2.csv',sep=',')   
+
+st.write(saved_inputs_label)
+
+#check saved Inputs
+col1, col2, col3, col4, col5, col6, col7, col8, col9, = st.columns(9)
+with col1:
+    list_of_selected_policies1_LPI2_saved=pd.read_csv("data/list_of_selected_policies1_LPI2.csv", sep=',')
+    st.dataframe(list_of_selected_policies1_LPI2_saved['policies'])
+    check_completion(list_of_selected_policies1_LPI2_saved,pol_am_one,'infrastructure',1)
+
+with col2:
+    list_of_selected_policies2_LPI2_saved=pd.read_csv("data/list_of_selected_policies2_LPI2.csv", sep=',')
+    st.dataframe(list_of_selected_policies2_LPI2_saved['policies'])
+    check_completion(list_of_selected_policies2_LPI2_saved,pol_am_two,'infrastructure',2)
+    
+with col3:
+    list_of_selected_policies3_LPI2_saved=pd.read_csv("data/list_of_selected_policies3_LPI2.csv", sep=',')
+    st.dataframe(list_of_selected_policies3_LPI2_saved['policies'])
+    check_completion(list_of_selected_policies3_LPI2_saved,pol_am_three,'infrastructure',3)
+    
+with col4:
+    list_of_selected_policies4_LPI2_saved=pd.read_csv("data/list_of_selected_policies4_LPI2.csv", sep=',')
+    st.dataframe(list_of_selected_policies4_LPI2_saved['policies'])
+    check_completion(list_of_selected_policies4_LPI2_saved,pol_am_four,'infrastructure',4)
+
+with col5:
+    list_of_selected_policies5_LPI2_saved=pd.read_csv("data/list_of_selected_policies5_LPI2.csv", sep=',')
+    st.dataframe(list_of_selected_policies5_LPI2_saved['policies'])
+    check_completion(list_of_selected_policies5_LPI2_saved,pol_am_five,'infrastructure',5)
+
+with col6:
+    list_of_selected_policies6_LPI2_saved=pd.read_csv("data/list_of_selected_policies6_LPI2.csv", sep=',')
+    st.dataframe(list_of_selected_policies6_LPI2_saved['policies'])
+    check_completion(list_of_selected_policies6_LPI2_saved,pol_am_four,'infrastructure',6)
+
+with col7:
+    list_of_selected_policies7_LPI2_saved=pd.read_csv("data/list_of_selected_policies7_LPI2.csv", sep=',')
+    st.dataframe(list_of_selected_policies7_LPI2_saved['policies'])
+    check_completion(list_of_selected_policies7_LPI2_saved,pol_am_three,'infrastructure',7)
+
+with col8:
+    list_of_selected_policies8_LPI2_saved=pd.read_csv("data/list_of_selected_policies8_LPI2.csv", sep=',')
+    st.dataframe(list_of_selected_policies8_LPI2_saved['policies'])  
+    check_completion(list_of_selected_policies8_LPI2_saved,pol_am_two,'infrastructure',8)
+
+with col9:
+    list_of_selected_policies9_LPI2_saved=pd.read_csv("data/list_of_selected_policies9_LPI2.csv", sep=',')
+    st.dataframe(list_of_selected_policies9_LPI2_saved['policies']) 
+    check_completion(list_of_selected_policies9_LPI2_saved,pol_am_one,'infrastructure',9)
+
 check_category_completion('infrastructure')
 st.markdown('''---''')
 
@@ -414,11 +555,13 @@ st.markdown('''---''')
 if st.session_state['language'] == 'English':
     st.subheader('3. Ease of arranging shipments')
     st.write('**Description:** The ease of arranging competitively priced shipments *(”Ease of arranging shipments”)*. *[soucre](%s)*'%LPI_categories_Link)
-    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left/-4)** and then proceed in order to the most appropriate measures **(right/4)**.')
+    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left)** and then proceed in order to the most appropriate measures **(right)**.')
+    save_button_label_LPI3='save category: Shipments'
 else:
     st.subheader('3. Preisliche Wettbewerbsfähigkeit von Sendungen')
     st.write('**Beschreibung:** Die Möglichkeit, Sendungen zu wettbewerbsfähigen Preisen zu arrangieren *("Ease of arranging shipments")*. *[Quelle](%s)*'%LPI_categories_Link)
-    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links/-4)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts/4)**.')
+    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts)**.')
+    save_button_label_LPI3='Kategorie speichern: Sendungen'
 
 LPI_cat='International shipments'
 col1, col2, col3, col4, col5, col6, col7, col8, col9, = st.columns(9)
@@ -458,6 +601,70 @@ with col9:
     list_of_selected_policies9_LPI3 = create_column_content(pol_am_one,4,policies_LPI3)
     policies_LPI3=list(filter(lambda x: x not in list(list_of_selected_policies9_LPI3['policies']), policies_LPI3))
     check_completion(list_of_selected_policies9_LPI3,pol_am_one,'international_shipments',9)
+
+st.info(info_message_save)
+
+#save policy inputs to prevent data loss
+if st.button(save_button_label_LPI3):
+    list_of_selected_policies1_LPI3.to_csv('data/list_of_selected_policies1_LPI3.csv',sep=',')
+    list_of_selected_policies2_LPI3.to_csv('data/list_of_selected_policies2_LPI3.csv',sep=',')
+    list_of_selected_policies3_LPI3.to_csv('data/list_of_selected_policies3_LPI3.csv',sep=',') 
+    list_of_selected_policies4_LPI3.to_csv('data/list_of_selected_policies4_LPI3.csv',sep=',') 
+    list_of_selected_policies5_LPI3.to_csv('data/list_of_selected_policies5_LPI3.csv',sep=',') 
+    list_of_selected_policies6_LPI3.to_csv('data/list_of_selected_policies6_LPI3.csv',sep=',') 
+    list_of_selected_policies7_LPI3.to_csv('data/list_of_selected_policies7_LPI3.csv',sep=',') 
+    list_of_selected_policies8_LPI3.to_csv('data/list_of_selected_policies8_LPI3.csv',sep=',') 
+    list_of_selected_policies9_LPI3.to_csv('data/list_of_selected_policies9_LPI3.csv',sep=',')   
+
+st.write(saved_inputs_label)
+
+#check saved Inputs
+col1, col2, col3, col4, col5, col6, col7, col8, col9, = st.columns(9)
+with col1:
+    list_of_selected_policies1_LPI3_saved=pd.read_csv("data/list_of_selected_policies1_LPI3.csv", sep=',')
+    st.dataframe(list_of_selected_policies1_LPI3_saved['policies'])
+    check_completion(list_of_selected_policies1_LPI3_saved,pol_am_one,'international_shipments',1)
+
+with col2:
+    list_of_selected_policies2_LPI3_saved=pd.read_csv("data/list_of_selected_policies2_LPI3.csv", sep=',')
+    st.dataframe(list_of_selected_policies2_LPI3_saved['policies'])
+    check_completion(list_of_selected_policies2_LPI3_saved,pol_am_two,'international_shipments',2)
+    
+with col3:
+    list_of_selected_policies3_LPI3_saved=pd.read_csv("data/list_of_selected_policies3_LPI3.csv", sep=',')
+    st.dataframe(list_of_selected_policies3_LPI3_saved['policies'])
+    check_completion(list_of_selected_policies3_LPI3_saved,pol_am_three,'international_shipments',3)
+    
+with col4:
+    list_of_selected_policies4_LPI3_saved=pd.read_csv("data/list_of_selected_policies4_LPI3.csv", sep=',')
+    st.dataframe(list_of_selected_policies4_LPI3_saved['policies'])
+    check_completion(list_of_selected_policies4_LPI3_saved,pol_am_four,'international_shipments',4)
+
+with col5:
+    list_of_selected_policies5_LPI3_saved=pd.read_csv("data/list_of_selected_policies5_LPI3.csv", sep=',')
+    st.dataframe(list_of_selected_policies5_LPI3_saved['policies'])
+    check_completion(list_of_selected_policies5_LPI3_saved,pol_am_five,'international_shipments',5)
+
+with col6:
+    list_of_selected_policies6_LPI3_saved=pd.read_csv("data/list_of_selected_policies6_LPI3.csv", sep=',')
+    st.dataframe(list_of_selected_policies6_LPI3_saved['policies'])
+    check_completion(list_of_selected_policies6_LPI3_saved,pol_am_four,'international_shipments',6)
+
+with col7:
+    list_of_selected_policies7_LPI3_saved=pd.read_csv("data/list_of_selected_policies7_LPI3.csv", sep=',')
+    st.dataframe(list_of_selected_policies7_LPI3_saved['policies'])
+    check_completion(list_of_selected_policies7_LPI3_saved,pol_am_three,'international_shipments',7)
+
+with col8:
+    list_of_selected_policies8_LPI3_saved=pd.read_csv("data/list_of_selected_policies8_LPI3.csv", sep=',')
+    st.dataframe(list_of_selected_policies8_LPI3_saved['policies'])  
+    check_completion(list_of_selected_policies8_LPI3_saved,pol_am_two,'international_shipments',8)
+
+with col9:
+    list_of_selected_policies9_LPI3_saved=pd.read_csv("data/list_of_selected_policies9_LPI3.csv", sep=',')
+    st.dataframe(list_of_selected_policies9_LPI3_saved['policies']) 
+    check_completion(list_of_selected_policies9_LPI3_saved,pol_am_one,'international_shipments',9)
+
 check_category_completion('international_shipments')
 st.markdown('''---''')
 
@@ -465,12 +672,13 @@ st.markdown('''---''')
 if st.session_state['language'] == 'English':
     st.subheader('4. Quality of logistics services')
     st.write('**Description:** The competence and quality of logistics services—trucking, forwarding, and customs brokerage *(“Quality of logistics services”)*. *[soucre](%s)*'%LPI_categories_Link)
-    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left/-4)** and then proceed in order to the most appropriate measures **(right/4)**.')
+    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left)** and then proceed in order to the most appropriate measures **(right)**.')
+    save_button_label_LPI4='save category: Service'
 else:
     st.subheader('4. Qualität von Logistik Service')
     st.write('**Beschreibung:** Kompetenz und Qualität der Logistikdienstleistungen - Transport, Spedition und Zollabfertigung *("Quality of logistics services")*. *[Quelle](%s)*'%LPI_categories_Link)
-    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links/-4)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts/4)**.')
-
+    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts)**.')
+    save_button_label_LPI4='Kategorie speichern: Service'
 
 LPI_cat='Logistics competences'
 col1, col2, col3, col4, col5, col6, col7, col8, col9, = st.columns(9)
@@ -510,18 +718,83 @@ with col9:
     list_of_selected_policies9_LPI4 = create_column_content(pol_am_one,4,policies_LPI4)
     policies_LPI4=list(filter(lambda x: x not in list(list_of_selected_policies9_LPI4['policies']), policies_LPI4))
     check_completion(list_of_selected_policies9_LPI4,pol_am_one,'logistics_competences',9)
+
+st.info(info_message_save)
+
+#save policy inputs to prevent data loss
+if st.button(save_button_label_LPI4):
+    list_of_selected_policies1_LPI4.to_csv('data/list_of_selected_policies1_LPI4.csv',sep=',')
+    list_of_selected_policies2_LPI4.to_csv('data/list_of_selected_policies2_LPI4.csv',sep=',')
+    list_of_selected_policies3_LPI4.to_csv('data/list_of_selected_policies3_LPI4.csv',sep=',') 
+    list_of_selected_policies4_LPI4.to_csv('data/list_of_selected_policies4_LPI4.csv',sep=',') 
+    list_of_selected_policies5_LPI4.to_csv('data/list_of_selected_policies5_LPI4.csv',sep=',') 
+    list_of_selected_policies6_LPI4.to_csv('data/list_of_selected_policies6_LPI4.csv',sep=',') 
+    list_of_selected_policies7_LPI4.to_csv('data/list_of_selected_policies7_LPI4.csv',sep=',') 
+    list_of_selected_policies8_LPI4.to_csv('data/list_of_selected_policies8_LPI4.csv',sep=',') 
+    list_of_selected_policies9_LPI4.to_csv('data/list_of_selected_policies9_LPI4.csv',sep=',')   
+
+st.write(saved_inputs_label)
+
+#check saved Inputs
+col1, col2, col3, col4, col5, col6, col7, col8, col9, = st.columns(9)
+with col1:
+    list_of_selected_policies1_LPI4_saved=pd.read_csv("data/list_of_selected_policies1_LPI4.csv", sep=',')
+    st.dataframe(list_of_selected_policies1_LPI4_saved['policies'])
+    check_completion(list_of_selected_policies1_LPI4_saved,pol_am_one,'logistics_competences',1)
+
+with col2:
+    list_of_selected_policies2_LPI4_saved=pd.read_csv("data/list_of_selected_policies2_LPI4.csv", sep=',')
+    st.dataframe(list_of_selected_policies2_LPI4_saved['policies'])
+    check_completion(list_of_selected_policies2_LPI4_saved,pol_am_two,'logistics_competences',2)
+    
+with col3:
+    list_of_selected_policies3_LPI4_saved=pd.read_csv("data/list_of_selected_policies3_LPI4.csv", sep=',')
+    st.dataframe(list_of_selected_policies3_LPI4_saved['policies'])
+    check_completion(list_of_selected_policies3_LPI4_saved,pol_am_three,'logistics_competences',3)
+    
+with col4:
+    list_of_selected_policies4_LPI4_saved=pd.read_csv("data/list_of_selected_policies4_LPI4.csv", sep=',')
+    st.dataframe(list_of_selected_policies4_LPI4_saved['policies'])
+    check_completion(list_of_selected_policies4_LPI4_saved,pol_am_four,'logistics_competences',4)
+
+with col5:
+    list_of_selected_policies5_LPI4_saved=pd.read_csv("data\list_of_selected_policies5_LPI4.csv", sep=',')
+    st.dataframe(list_of_selected_policies5_LPI4_saved['policies'])
+    check_completion(list_of_selected_policies5_LPI4_saved,pol_am_five,'logistics_competences',5)
+
+with col6:
+    list_of_selected_policies6_LPI4_saved=pd.read_csv("data/list_of_selected_policies6_LPI4.csv", sep=',')
+    st.dataframe(list_of_selected_policies6_LPI4_saved['policies'])
+    check_completion(list_of_selected_policies6_LPI4_saved,pol_am_four,'logistics_competences',6)
+
+with col7:
+    list_of_selected_policies7_LPI4_saved=pd.read_csv("data/list_of_selected_policies7_LPI4.csv", sep=',')
+    st.dataframe(list_of_selected_policies7_LPI4_saved['policies'])
+    check_completion(list_of_selected_policies7_LPI4_saved,pol_am_three,'logistics_competences',7)
+
+with col8:
+    list_of_selected_policies8_LPI4_saved=pd.read_csv("data/list_of_selected_policies8_LPI4.csv", sep=',')
+    st.dataframe(list_of_selected_policies8_LPI4_saved['policies'])  
+    check_completion(list_of_selected_policies8_LPI4_saved,pol_am_two,'logistics_competences',8)
+
+with col9:
+    list_of_selected_policies9_LPI4_saved=pd.read_csv("data/list_of_selected_policies9_LPI4.csv", sep=',')
+    st.dataframe(list_of_selected_policies9_LPI4_saved['policies']) 
+    check_completion(list_of_selected_policies9_LPI4_saved,pol_am_one,'logistics_competences',9)
+
 check_category_completion('logistics_competences')
 st.markdown('''---''')
 
 if st.session_state['language'] == 'English':
     st.subheader('5. Tracking and tracing')
     st.write('**Description:** The ability to track and trace consignments *(“Tracking and tracing”)*. *[soucre](%s)*'%LPI_categories_Link)
-    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left/-4)** and then proceed in order to the most appropriate measures **(right/4)**.')
+    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left)** and then proceed in order to the most appropriate measures **(right)**.')
+    save_button_label_LPI5='save category: Tracking and Tracing'
 else:
     st.subheader('5. Tracking und Tracing')
     st.write('**Beschreibung:** Die Möglichkeit, Sendungen zu verfolgen *("Tracking and Tracing")*. *[Quelle](%s)*'%LPI_categories_Link)
-    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links/-4)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts/4)**.')
-
+    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts)**.')
+    save_button_label_LPI5='Kategorie speichern: Tracking and Tracing'
 
 LPI_cat='Tracking_Tracing'
 col1, col2, col3, col4, col5, col6, col7, col8, col9, = st.columns(9)
@@ -561,18 +834,83 @@ with col9:
     list_of_selected_policies9_LPI5 = create_column_content(pol_am_one,4,policies_LPI5)
     policies_LPI5=list(filter(lambda x: x not in list(list_of_selected_policies9_LPI5['policies']), policies_LPI5))
     check_completion(list_of_selected_policies9_LPI5,pol_am_one,'tracking_tracing',9)
+
+st.info(info_message_save)
+
+#save policy inputs to prevent data loss
+if st.button(save_button_label_LPI5):
+    list_of_selected_policies1_LPI5.to_csv('data/list_of_selected_policies1_LPI5.csv',sep=',')
+    list_of_selected_policies2_LPI5.to_csv('data/list_of_selected_policies2_LPI5.csv',sep=',')
+    list_of_selected_policies3_LPI5.to_csv('data/list_of_selected_policies3_LPI5.csv',sep=',') 
+    list_of_selected_policies4_LPI5.to_csv('data/list_of_selected_policies4_LPI5.csv',sep=',') 
+    list_of_selected_policies5_LPI5.to_csv('data/list_of_selected_policies5_LPI5.csv',sep=',') 
+    list_of_selected_policies6_LPI5.to_csv('data/list_of_selected_policies6_LPI5.csv',sep=',') 
+    list_of_selected_policies7_LPI5.to_csv('data/list_of_selected_policies7_LPI5.csv',sep=',') 
+    list_of_selected_policies8_LPI5.to_csv('data/list_of_selected_policies8_LPI5.csv',sep=',') 
+    list_of_selected_policies9_LPI5.to_csv('data/list_of_selected_policies9_LPI5.csv',sep=',')   
+
+st.write(saved_inputs_label)
+
+#check saved Inputs
+col1, col2, col3, col4, col5, col6, col7, col8, col9, = st.columns(9)
+with col1:
+    list_of_selected_policies1_LPI5_saved=pd.read_csv("data/list_of_selected_policies1_LPI5.csv", sep=',')
+    st.dataframe(list_of_selected_policies1_LPI5_saved['policies'])
+    check_completion(list_of_selected_policies1_LPI5_saved,pol_am_one,'tracking_tracing',1)
+
+with col2:
+    list_of_selected_policies2_LPI5_saved=pd.read_csv("data/list_of_selected_policies2_LPI5.csv", sep=',')
+    st.dataframe(list_of_selected_policies2_LPI5_saved['policies'])
+    check_completion(list_of_selected_policies2_LPI5_saved,pol_am_two,'tracking_tracing',2)
+    
+with col3:
+    list_of_selected_policies3_LPI5_saved=pd.read_csv("data/list_of_selected_policies3_LPI5.csv", sep=',')
+    st.dataframe(list_of_selected_policies3_LPI5_saved['policies'])
+    check_completion(list_of_selected_policies3_LPI5_saved,pol_am_three,'tracking_tracing',3)
+    
+with col4:
+    list_of_selected_policies4_LPI5_saved=pd.read_csv("data/list_of_selected_policies4_LPI5.csv", sep=',')
+    st.dataframe(list_of_selected_policies4_LPI5_saved['policies'])
+    check_completion(list_of_selected_policies4_LPI5_saved,pol_am_four,'tracking_tracing',4)
+
+with col5:
+    list_of_selected_policies5_LPI5_saved=pd.read_csv("data/list_of_selected_policies5_LPI5.csv", sep=',')
+    st.dataframe(list_of_selected_policies5_LPI5_saved['policies'])
+    check_completion(list_of_selected_policies5_LPI5_saved,pol_am_five,'tracking_tracing',5)
+
+with col6:
+    list_of_selected_policies6_LPI5_saved=pd.read_csv("data/list_of_selected_policies6_LPI5.csv", sep=',')
+    st.dataframe(list_of_selected_policies6_LPI5_saved['policies'])
+    check_completion(list_of_selected_policies6_LPI5_saved,pol_am_four,'tracking_tracing',6)
+
+with col7:
+    list_of_selected_policies7_LPI5_saved=pd.read_csv("data/list_of_selected_policies7_LPI5.csv", sep=',')
+    st.dataframe(list_of_selected_policies7_LPI5_saved['policies'])
+    check_completion(list_of_selected_policies7_LPI5_saved,pol_am_three,'tracking_tracing',7)
+
+with col8:
+    list_of_selected_policies8_LPI5_saved=pd.read_csv("data/list_of_selected_policies8_LPI5.csv", sep=',')
+    st.dataframe(list_of_selected_policies8_LPI5_saved['policies'])  
+    check_completion(list_of_selected_policies8_LPI5_saved,pol_am_two,'tracking_tracing',8)
+
+with col9:
+    list_of_selected_policies9_LPI5_saved=pd.read_csv("data/list_of_selected_policies9_LPI5.csv", sep=',')
+    st.dataframe(list_of_selected_policies9_LPI5_saved['policies']) 
+    check_completion(list_of_selected_policies9_LPI5_saved,pol_am_one,'tracking_tracing',9)
+
 check_category_completion('tracking_tracing')
 st.markdown('''---''')
 
 if st.session_state['language'] == 'English':
     st.subheader('6. Timeliness')
     st.write('**Description:** The frequency with which shipments reach consignees within scheduled or expected delivery times *(“Timeliness”)*. *[soucre](%s)*'%LPI_categories_Link)
-    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left/-4)** and then proceed in order to the most appropriate measures **(right/4)**.')
+    st.write('**Task:** With the goal of improving logistics in this area, please select the least appropriate policy measures first **(left)** and then proceed in order to the most appropriate measures **(right)**.')
+    save_button_label_LPI6='save category: Timeliness'
 else:
     st.subheader('6. Pünktlichkeit')
     st.write('**Beschreibung:** Die Häufigkeit, mit der Sendungen die Empfänger innerhalb der geplanten oder erwarteten Lieferzeiten erreichen*("Timeliness")*. *[Quelle](%s)*'%LPI_categories_Link)
-    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links/-4)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts/4)**.')
-
+    st.write('**Aufgabe:** Mit dem Ziel der Verbesserung der Logistik in diesem Bereich wählen Sie bitte zuerst die am wenigsten passenden Policy-Maßnahmen **(links)** aus und fahren Sie dann der Reihe nach fort, bis hin zu den am besten passenden Maßnahmen **(rechts)**.')
+    save_button_label_LPI6='Kategorie speichern: Pünktlichkeit'
 
 LPI_cat='Timeliness'
 col1, col2, col3, col4, col5, col6, col7, col8, col9, = st.columns(9)
@@ -612,6 +950,70 @@ with col9:
     list_of_selected_policies9_LPI6 = create_column_content(pol_am_one,4,policies_LPI6)
     policies_LPI6=list(filter(lambda x: x not in list(list_of_selected_policies9_LPI6['policies']), policies_LPI6))
     check_completion(list_of_selected_policies9_LPI6,pol_am_one,'timeliness',9)
+
+st.info(info_message_save)
+
+#save policy inputs to prevent data loss
+if st.button(save_button_label_LPI6):
+    list_of_selected_policies1_LPI6.to_csv('data/list_of_selected_policies1_LPI6.csv',sep=',')
+    list_of_selected_policies2_LPI6.to_csv('data/list_of_selected_policies2_LPI6.csv',sep=',')
+    list_of_selected_policies3_LPI6.to_csv('data/list_of_selected_policies3_LPI6.csv',sep=',') 
+    list_of_selected_policies4_LPI6.to_csv('data/list_of_selected_policies4_LPI6.csv',sep=',') 
+    list_of_selected_policies5_LPI6.to_csv('data/list_of_selected_policies5_LPI6.csv',sep=',') 
+    list_of_selected_policies6_LPI6.to_csv('data/list_of_selected_policies6_LPI6.csv',sep=',') 
+    list_of_selected_policies7_LPI6.to_csv('data/list_of_selected_policies7_LPI6.csv',sep=',') 
+    list_of_selected_policies8_LPI6.to_csv('data/list_of_selected_policies8_LPI6.csv',sep=',') 
+    list_of_selected_policies9_LPI6.to_csv('data/list_of_selected_policies9_LPI6.csv',sep=',')   
+
+st.write(saved_inputs_label)
+
+#check saved Inputs
+col1, col2, col3, col4, col5, col6, col7, col8, col9, = st.columns(9)
+with col1:
+    list_of_selected_policies1_LPI6_saved=pd.read_csv("data/list_of_selected_policies1_LPI6.csv", sep=',')
+    st.dataframe(list_of_selected_policies1_LPI6_saved['policies'])
+    check_completion(list_of_selected_policies1_LPI6_saved,pol_am_one,'timeliness',1)
+
+with col2:
+    list_of_selected_policies2_LPI6_saved=pd.read_csv("data/list_of_selected_policies2_LPI6.csv", sep=',')
+    st.dataframe(list_of_selected_policies2_LPI6_saved['policies'])
+    check_completion(list_of_selected_policies2_LPI6_saved,pol_am_two,'timeliness',2)
+    
+with col3:
+    list_of_selected_policies3_LPI6_saved=pd.read_csv("data/list_of_selected_policies3_LPI6.csv", sep=',')
+    st.dataframe(list_of_selected_policies3_LPI6_saved['policies'])
+    check_completion(list_of_selected_policies3_LPI6_saved,pol_am_three,'timeliness',3)
+    
+with col4:
+    list_of_selected_policies4_LPI6_saved=pd.read_csv("data/list_of_selected_policies4_LPI6.csv", sep=',')
+    st.dataframe(list_of_selected_policies4_LPI6_saved['policies'])
+    check_completion(list_of_selected_policies4_LPI6_saved,pol_am_four,'timeliness',4)
+
+with col5:
+    list_of_selected_policies5_LPI6_saved=pd.read_csv("data/list_of_selected_policies5_LPI6.csv", sep=',')
+    st.dataframe(list_of_selected_policies5_LPI6_saved['policies'])
+    check_completion(list_of_selected_policies5_LPI6_saved,pol_am_five,'timeliness',5)
+
+with col6:
+    list_of_selected_policies6_LPI6_saved=pd.read_csv("data/list_of_selected_policies6_LPI6.csv", sep=',')
+    st.dataframe(list_of_selected_policies6_LPI6_saved['policies'])
+    check_completion(list_of_selected_policies6_LPI6_saved,pol_am_four,'timeliness',6)
+
+with col7:
+    list_of_selected_policies7_LPI6_saved=pd.read_csv("data/list_of_selected_policies7_LPI6.csv", sep=',')
+    st.dataframe(list_of_selected_policies7_LPI6_saved['policies'])
+    check_completion(list_of_selected_policies7_LPI6_saved,pol_am_three,'timeliness',7)
+
+with col8:
+    list_of_selected_policies8_LPI6_saved=pd.read_csv("data/list_of_selected_policies8_LPI6.csv", sep=',')
+    st.dataframe(list_of_selected_policies8_LPI6_saved['policies'])  
+    check_completion(list_of_selected_policies8_LPI6_saved,pol_am_two,'timeliness',8)
+
+with col9:
+    list_of_selected_policies9_LPI6_saved=pd.read_csv("data/list_of_selected_policies9_LPI6.csv", sep=',')
+    st.dataframe(list_of_selected_policies9_LPI6_saved['policies']) 
+    check_completion(list_of_selected_policies9_LPI6_saved,pol_am_one,'timeliness',9)
+
 check_category_completion('timeliness')
 st.markdown('''---''')
 
@@ -651,65 +1053,66 @@ if save_results:
 
 
 if st.session_state['survey_completion_check'] == 'survey completed' or st.session_state['survey_completion_check'] == 'survey saved' :
-        df_results=pd.concat([df_results,list_of_selected_policies1_LPI1])
-        df_results=pd.concat([df_results,list_of_selected_policies2_LPI1])
-        df_results=pd.concat([df_results,list_of_selected_policies3_LPI1])
-        df_results=pd.concat([df_results,list_of_selected_policies4_LPI1])
-        df_results=pd.concat([df_results,list_of_selected_policies5_LPI1])
-        df_results=pd.concat([df_results,list_of_selected_policies6_LPI1])
-        df_results=pd.concat([df_results,list_of_selected_policies7_LPI1])
-        df_results=pd.concat([df_results,list_of_selected_policies8_LPI1])
-        df_results=pd.concat([df_results,list_of_selected_policies9_LPI1])
-        df_results=pd.concat([df_results,list_of_selected_policies1_LPI2])
-        df_results=pd.concat([df_results,list_of_selected_policies2_LPI2])
-        df_results=pd.concat([df_results,list_of_selected_policies3_LPI2])
-        df_results=pd.concat([df_results,list_of_selected_policies4_LPI2])
-        df_results=pd.concat([df_results,list_of_selected_policies5_LPI2])
-        df_results=pd.concat([df_results,list_of_selected_policies6_LPI2])
-        df_results=pd.concat([df_results,list_of_selected_policies7_LPI2])
-        df_results=pd.concat([df_results,list_of_selected_policies8_LPI2])
-        df_results=pd.concat([df_results,list_of_selected_policies9_LPI2])
-        df_results=pd.concat([df_results,list_of_selected_policies1_LPI3])
-        df_results=pd.concat([df_results,list_of_selected_policies2_LPI3])
-        df_results=pd.concat([df_results,list_of_selected_policies3_LPI3])
-        df_results=pd.concat([df_results,list_of_selected_policies4_LPI3])
-        df_results=pd.concat([df_results,list_of_selected_policies5_LPI3])
-        df_results=pd.concat([df_results,list_of_selected_policies6_LPI3])
-        df_results=pd.concat([df_results,list_of_selected_policies7_LPI3])
-        df_results=pd.concat([df_results,list_of_selected_policies8_LPI3])
-        df_results=pd.concat([df_results,list_of_selected_policies9_LPI3])
-        df_results=pd.concat([df_results,list_of_selected_policies1_LPI4])
-        df_results=pd.concat([df_results,list_of_selected_policies2_LPI4])
-        df_results=pd.concat([df_results,list_of_selected_policies3_LPI4])
-        df_results=pd.concat([df_results,list_of_selected_policies4_LPI4])
-        df_results=pd.concat([df_results,list_of_selected_policies5_LPI4])
-        df_results=pd.concat([df_results,list_of_selected_policies6_LPI4])
-        df_results=pd.concat([df_results,list_of_selected_policies7_LPI4])
-        df_results=pd.concat([df_results,list_of_selected_policies8_LPI4])
-        df_results=pd.concat([df_results,list_of_selected_policies9_LPI4])
-        df_results=pd.concat([df_results,list_of_selected_policies1_LPI5])
-        df_results=pd.concat([df_results,list_of_selected_policies2_LPI5])
-        df_results=pd.concat([df_results,list_of_selected_policies3_LPI5])
-        df_results=pd.concat([df_results,list_of_selected_policies4_LPI5])
-        df_results=pd.concat([df_results,list_of_selected_policies5_LPI5])
-        df_results=pd.concat([df_results,list_of_selected_policies6_LPI5])
-        df_results=pd.concat([df_results,list_of_selected_policies7_LPI5])
-        df_results=pd.concat([df_results,list_of_selected_policies8_LPI5])
-        df_results=pd.concat([df_results,list_of_selected_policies9_LPI5])
-        df_results=pd.concat([df_results,list_of_selected_policies1_LPI6])
-        df_results=pd.concat([df_results,list_of_selected_policies2_LPI6])
-        df_results=pd.concat([df_results,list_of_selected_policies3_LPI6])
-        df_results=pd.concat([df_results,list_of_selected_policies4_LPI6])
-        df_results=pd.concat([df_results,list_of_selected_policies5_LPI6])
-        df_results=pd.concat([df_results,list_of_selected_policies6_LPI6])
-        df_results=pd.concat([df_results,list_of_selected_policies7_LPI6])
-        df_results=pd.concat([df_results,list_of_selected_policies8_LPI6])
-        df_results=pd.concat([df_results,list_of_selected_policies9_LPI6])
+        df_results=pd.concat([df_results,list_of_selected_policies1_LPI1_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies2_LPI1_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies3_LPI1_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies4_LPI1_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies5_LPI1_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies6_LPI1_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies7_LPI1_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies8_LPI1_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies9_LPI1_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies1_LPI2_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies2_LPI2_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies3_LPI2_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies4_LPI2_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies5_LPI2_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies6_LPI2_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies7_LPI2_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies8_LPI2_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies9_LPI2_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies1_LPI3_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies2_LPI3_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies3_LPI3_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies4_LPI3_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies5_LPI3_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies6_LPI3_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies7_LPI3_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies8_LPI3_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies9_LPI3_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies1_LPI4_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies2_LPI4_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies3_LPI4_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies4_LPI4_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies5_LPI4_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies6_LPI4_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies7_LPI4_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies8_LPI4_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies9_LPI4_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies1_LPI5_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies2_LPI5_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies3_LPI5_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies4_LPI5_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies5_LPI5_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies6_LPI5_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies7_LPI5_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies8_LPI5_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies9_LPI5_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies1_LPI6_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies2_LPI6_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies3_LPI6_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies4_LPI6_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies5_LPI6_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies6_LPI6_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies7_LPI6_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies8_LPI6_saved])
+        df_results=pd.concat([df_results,list_of_selected_policies9_LPI6_saved])
         df_results=pd.merge(left=df_results, right=df_policies, left_on='policies', right_on=policy_column)
         df_results=df_results[['score','LPI-categorie','Policy']]
         st.session_state['survey_completion_check'] = 'survey saved'
 
 df_results.to_csv('data/Survey_results.csv',sep=',')
+
 
 if st.session_state['language'] == 'English':
     info_saved_txt='Continue and send your results'
@@ -720,12 +1123,14 @@ if st.session_state['language'] == 'English':
     Background_info='Please choose a background.'
 else:
     info_saved_txt='Senden Sie nun Ihr Ergebnisse'
-    Contact_txt='Falls Sie ein Feedback haben, geben Sie es bitte unten ein und fügen Sie Ihre E-Mail hinzu, wenn Sie die endgültige Analyse zugeschickt bekommen möchten, sobald diese fertig ist.'
+    Contact_txt='Falls Sie ein Feedback haben, geben Sie es bitte unten ein und fügen Sie Ihre E-Mail hinzu, wenn Sie die endgültige Analyse zugeschickt bekommen möchten, sobald sie fertig ist.'
     Mail_Feedback_txt='Geben Sie ihre E-Mail-Adresse und ihr Feedback hier ein.'
     Background_question='Wählen Sie einen Hintergrund.'
     roll=['','Logistik', 'Lebensmittelindustrie', 'Wissenschaft','Student', 'Anderer']
     Background_info='Bitte wählen Sie einen Hintergrund.'
-   
+
+
+
 if st.session_state['survey_completion_check'] == 'survey saved':
     st.info(info_saved_txt)
     chosen_roll = st.selectbox(Background_question,roll)
@@ -754,14 +1159,14 @@ def send_test_mail(body):
     receiver_email = "jannik.schaeffer.tu.berlin.log@gmail.com"
 
     msg = MIMEMultipart()
-    msg['Subject'] = '[Q-survey Result], roll:'+chosen_roll
+    msg['Subject'] = '[Email Test]'
     msg['From'] = sender_email
     msg['To'] = receiver_email
 
     msgText = MIMEText('<b>%s</b>' % (body), 'html')
     msg.attach(msgText)
 
-    with open('data/Survey_results.csv','rb') as file:
+    with open('data\Survey_results.csv','rb') as file:
     # Attach the file with filename to the email
         msg.attach(MIMEApplication(file.read(), Name='Survey_results.csv'))
 
@@ -774,6 +1179,9 @@ def send_test_mail(body):
     except Exception as e:
         print(e)
         
+# @app.route('/')
+# def hello_world():
+#     return "Hello world!"
 if st.session_state['language'] == 'English':
     Send_button_txt='Click to send your survey results'
     Success_txt='Thank you for attending in this survey!'
