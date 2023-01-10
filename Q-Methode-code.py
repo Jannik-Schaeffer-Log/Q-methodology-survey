@@ -758,7 +758,7 @@ with col4:
     check_completion(list_of_selected_policies4_LPI4_saved,pol_am_four,'logistics_competences',4)
 
 with col5:
-    list_of_selected_policies5_LPI4_saved=pd.read_csv("data\list_of_selected_policies5_LPI4.csv", sep=',')
+    list_of_selected_policies5_LPI4_saved=pd.read_csv("data/list_of_selected_policies5_LPI4.csv", sep=',')
     st.dataframe(list_of_selected_policies5_LPI4_saved['policies'])
     check_completion(list_of_selected_policies5_LPI4_saved,pol_am_five,'logistics_competences',5)
 
@@ -1174,7 +1174,7 @@ def send_test_mail(body):
         with smtplib.SMTP('smtp.web.de', 587) as smtpObj:
             smtpObj.ehlo()
             smtpObj.starttls()
-            smtpObj.login(st.secrets['EMAIL'], st.secrets['EMAIL_PW'])
+            smtpObj.login("jannik.schaeffer.tu-berlin-logistik@web.de", "Logistik4TUBerlin") # smtpObj.login(st.secrets['EMAIL'], st.secrets['EMAIL_PW'])
             smtpObj.sendmail(sender_email, receiver_email, msg.as_string())
     except Exception as e:
         print(e)
