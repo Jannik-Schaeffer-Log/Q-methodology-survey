@@ -1166,7 +1166,7 @@ def send_test_mail(body):
     msgText = MIMEText('<b>%s</b>' % (body), 'html')
     msg.attach(msgText)
 
-    with open('data\Survey_results.csv','rb') as file:
+    with open('data/Survey_results.csv','rb') as file:
     # Attach the file with filename to the email
         msg.attach(MIMEApplication(file.read(), Name='Survey_results.csv'))
 
