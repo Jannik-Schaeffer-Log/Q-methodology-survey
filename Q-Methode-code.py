@@ -1174,7 +1174,7 @@ def send_test_mail(body):
         with smtplib.SMTP('smtp.web.de', 587) as smtpObj:
             smtpObj.ehlo()
             smtpObj.starttls()
-            smtpObj.login("jannik.schaeffer.tu-berlin-logistik@web.de", "Logistik4TUBerlin") # smtpObj.login(st.secrets['EMAIL'], st.secrets['EMAIL_PW'])
+            smtpObj.login(st.secrets['EMAIL'], st.secrets['EMAIL_PW'])
             smtpObj.sendmail(sender_email, receiver_email, msg.as_string())
     except Exception as e:
         print(e)
